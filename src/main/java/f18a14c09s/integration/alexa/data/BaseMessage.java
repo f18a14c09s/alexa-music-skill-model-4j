@@ -1,12 +1,10 @@
-package f18a14c09s.integration.alexa.music.model;
+package f18a14c09s.integration.alexa.data;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public abstract class AbstractMessage {
-
+public abstract class BaseMessage {
     private MessageHeader header;
-
 }
