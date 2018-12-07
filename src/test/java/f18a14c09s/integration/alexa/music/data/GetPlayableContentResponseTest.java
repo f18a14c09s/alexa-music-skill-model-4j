@@ -1,12 +1,14 @@
 package f18a14c09s.integration.alexa.music.data;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
-import f18a14c09s.integration.alexa.data.Response;
 import org.junit.jupiter.api.Test;
-
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import f18a14c09s.integration.alexa.data.Response;
+
+import java.util.*;
+import java.util.function.*;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class GetPlayableContentResponseTest {
     public static final String TEST_CASE =

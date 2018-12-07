@@ -1,12 +1,14 @@
 package f18a14c09s.integration.alexa.music.data;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
-import f18a14c09s.integration.alexa.data.Request;
 import org.junit.jupiter.api.Test;
-
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import f18a14c09s.integration.alexa.data.Request;
+
+import java.util.*;
+import java.util.function.*;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SetLoopRequestTest {
     public static final String TEST_CASE =
