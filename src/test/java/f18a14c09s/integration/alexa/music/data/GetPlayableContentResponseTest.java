@@ -1,6 +1,7 @@
 package f18a14c09s.integration.alexa.music.data;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import f18a14c09s.integration.alexa.data.SpeechInfo;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -10,6 +11,7 @@ import f18a14c09s.integration.alexa.data.Response;
 import java.util.*;
 import java.util.function.*;
 
+import static f18a14c09s.integration.alexa.data.SpeechInfo.SpeechType.PLAIN_TEXT;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class GetPlayableContentResponseTest {
@@ -24,31 +26,17 @@ public class GetPlayableContentResponseTest {
 
 
         assertEquals(subject.getPayload().getContent().getId(), "1021012f-12bb-4938-9723-067a4338b6d0");
-        assertEquals(subject.getPayload().getContent().getMetadata().getType(), "TRACK");
+        assertEquals(subject.getPayload().getContent().getMetadata().getType(), MediaMetadata.Type.TRACK);
 
-        assertEquals(subject.getPayload().getContent().getMetadata().getName().getSpeech().getType(), "PLAIN_TEXT");
+        assertEquals(subject.getPayload().getContent().getMetadata().getName().getSpeech().getType(), PLAIN_TEXT);
         assertEquals(subject.getPayload().getContent().getMetadata().getName().getSpeech().getText(), "poker face");
         assertEquals(subject.getPayload().getContent().getMetadata().getName().getDisplay(), "Poker Face");
 
-
-//        assertEquals(subject.getPayload()
-//                .getContent()
-//                .getMetadata()
-//                .getAuthors()
-//                .get(0)
-//                .getName()
-//                .getSpeech()
-//                .getType(), "PLAIN_TEXT");
-//        assertEquals(subject.getPayload()
-//                .getContent()
-//                .getMetadata()
-//                .getAuthors()
-//                .get(0)
-//                .getName()
-//                .getSpeech()
-//                .getText(), "lady gaga");
-//        assertEquals(subject.getPayload().getContent().getMetadata().getAuthors().get(0).getName().getDisplay(),
-//                "Lady Gaga");
+        assertTrue(subject.getPayload().getContent().getMetadata() instanceof TrackMetadata);
+        TrackMetadata trackMetadata = (TrackMetadata) subject.getPayload().getContent().getMetadata();
+        assertEquals(trackMetadata.getAuthors().get(0).getName().getSpeech().getType(), PLAIN_TEXT);
+        assertEquals(trackMetadata.getAuthors().get(0).getName().getSpeech().getText(), "lady gaga");
+        assertEquals(trackMetadata.getAuthors().get(0).getName().getDisplay(), "Lady Gaga");
 
         assertEquals(subject.getPayload().getContent().getMetadata().getArt().getSources().get(0).getUrl(),
                 "https://example.com/images/cover/48x48-000000-80-0-0.jpg");

@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 import f18a14c09s.integration.alexa.data.Response;
 
+@JsonDeserialize
 public class GetNextItemResponse extends Response<GetNextItemResponse.Payload> {
     @Getter
     @Setter

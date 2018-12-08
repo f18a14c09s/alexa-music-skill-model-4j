@@ -12,7 +12,7 @@ public class AudioPlayerQueue extends PlaybackMethod {
     private ArrayList<QueueControl> controls;
     private Object rules;
     private Object queueIdsToDeactivate;
-    private String firstItem;
+    private FirstItem firstItem;
 
     public AudioPlayerQueue() {
         super(Type.ALEXA_AUDIO_PLAYER_QUEUE);

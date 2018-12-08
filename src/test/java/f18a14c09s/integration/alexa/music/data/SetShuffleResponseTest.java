@@ -15,7 +15,7 @@ public class SetShuffleResponseTest {
     void testDeserialization() throws IOException {
         ObjectMapper jsonMapper = new ObjectMapper();
         Response obj = jsonMapper.readValue(TEST_CASE, Response.class);
-        SetShuffleResponse subject = (SetShuffleResponse) obj;
+        GenericResponse subject = (GenericResponse) obj;
 
 
         assertEquals(subject.getHeader().getMessageId(), "2cae4d53-6bc1-4f8f-aa98-7dd2727ca84b");

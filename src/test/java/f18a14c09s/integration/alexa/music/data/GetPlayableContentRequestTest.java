@@ -31,9 +31,10 @@ public class GetPlayableContentRequestTest {
         assertEquals(subject.getPayload().getRequestContext().getLocation().getCountryCode(), "US");
         assertTrue((boolean) subject.getPayload().getFilters().getExplicitLanguageAllowed());
 
-        assertEquals(subject.getPayload().getSelectionCriteria().getAttributes().get(0).getType(), "TRACK");
+        assertEquals(subject.getPayload().getSelectionCriteria().getAttributes().get(0).getType(), EntityType.TRACK);
 //        assertEquals(subject.getPayload().getSelectionCriteria().getAttributes().get(0).getEntityId(), "138545995");
-        assertEquals(subject.getPayload().getSelectionCriteria().getAttributes().get(1).getType(), "MEDIA_TYPE");
+        assertEquals(subject.getPayload().getSelectionCriteria().getAttributes().get(1).getType(),
+                EntityType.MEDIA_TYPE);
 //        assertEquals(subject.getPayload().getSelectionCriteria().getAttributes().get(1).getValue(), "TRACK");
         assertEquals(subject.getHeader().getMessageId(), "2cae4d53-6bc1-4f8f-aa98-7dd2727ca84b");
         assertEquals(subject.getHeader().getNamespace(), "Alexa.Media.Search");
