@@ -5,9 +5,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
-import f18a14c09s.integration.alexa.music.data.GetPlayableContentRequest;
-import f18a14c09s.integration.alexa.music.data.InitiateRequest;
-import f18a14c09s.integration.alexa.music.data.MusicRequestType;
+import f18a14c09s.integration.alexa.music.data.*;
 
 import java.io.IOException;
 import java.util.*;
@@ -19,6 +17,12 @@ public class RequestDeserializer extends StdDeserializer<Request> {
         Map<MusicRequestType, Class<? extends Request<?>>> tempMap = new HashMap<>();
         tempMap.put(new MusicRequestType("Alexa.Media.Search", "GetPlayableContent"), GetPlayableContentRequest.class);
         tempMap.put(new MusicRequestType("Alexa.Media.Playback", "Initiate"), InitiateRequest.class);
+        tempMap.put(new MusicRequestType("Alexa.Media.PlayQueue", "GetItem"), GetItemRequest.class);
+        tempMap.put(new MusicRequestType("Alexa.Audio.PlayQueue", "GetPreviousItem"), GetPreviousItemRequest.class);
+        tempMap.put(new MusicRequestType("Alexa.Audio.PlayQueue", "GetNextItem"), GetNextItemRequest.class);
+        tempMap.put(new MusicRequestType("Alexa.Media.PlayQueue", "GetView"), GetViewRequest.class);
+        tempMap.put(new MusicRequestType("Alexa.Media.PlayQueue", "SetLoop"), SetLoopRequest.class);
+        tempMap.put(new MusicRequestType("Alexa.Media.PlayQueue", "SetShuffle"), SetShuffleRequest.class);
         types = Collections.unmodifiableMap(tempMap);
     }
 

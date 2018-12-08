@@ -2,9 +2,7 @@ package f18a14c09s.integration.alexa.music.data;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import java.io.IOException;
-
 import f18a14c09s.integration.alexa.data.Response;
-
 import java.util.*;
 import java.util.function.*;
 import static org.junit.jupiter.api.Assertions.*;
