@@ -2,7 +2,8 @@ package f18a14c09s.integration.alexa.music.data;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import java.io.IOException;
-
+import java.util.*;
+import java.util.function.*;
 import static org.junit.jupiter.api.Assertions.*;
 /**
  * Imagine that a user said "Alexa, play the song Jeremy by Pearl Jam." The skill returned a valid response (containing a content reference) to the GetPlayableContent API. Alexa decides to play the content from that response. To start playback, Alexa sends an Initiate request, similar to the following example, instructing the skill to create a queue from the content reference.
