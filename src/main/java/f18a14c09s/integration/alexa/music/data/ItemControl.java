@@ -4,13 +4,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Getter;
 import lombok.Setter;/**
- * An object which describes filters that the skill should apply to search results (selection criteria and content) before returning a response to the Alexa service.
+ * An object that describes a control that the user can take on an item. Examples are skip forward and skip backward buttons. Note that item controls will override any existing queue controls of the same type.
  */
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Filters {/**
- * Determines whether results with explicit language are allowed.
- */
-private Boolean explicitLanguageAllowed;
+public class ItemControl {
 }

@@ -5,16 +5,13 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Getter;
 import lombok.Setter;
 import f18a14c09s.integration.alexa.data.Response;/**
- * @see GetItemRequest
+ * @see SetShuffleRequest
  */
 @JsonDeserialize
-public class GetItemResponse extends Response<GetItemResponse.Payload> {
+public class ResponseResponse extends Response<ResponseResponse.Payload> {
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public static final class Payload {/**
- * The requested item in the play queue. See the Item object for more information.
- */
-private Item item;
+public static final class Payload {
 }
 }
