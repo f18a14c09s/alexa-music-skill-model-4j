@@ -1,10 +1,10 @@
 package f18a14c09s.integration.alexa.music.data;
-import java.util.ArrayList;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Getter;
 import lombok.Setter;
-import f18a14c09s.integration.alexa.data.Request;/**
+
+/**
  * When music is playing on an Alexa device and the user makes a request to enable or disable shuffle mode, Alexa sends a SetShuffle request to the skill. This interface is optional. Implement this interface only if your music service supports shuffle mode.
  * Whenever a user asks for music to be shuffled, or to turn off shuffle, Alexa sends a SetShuffle request. Example utterances include "Alexa, shuffle" and "Alexa, turn off shuffle". A SetShuffle request likely changes the skill's response to the next GetNextItem request. The skill must persist the current shuffle state (on or off) and associate it to the currently playing queue of music.
  * For example, when a user is listening to an album with shuffle mode off, a GetNextItem response should return the next track in the album. If shuffle mode is turned on by the user (Alexa sends a SetShuffle request with "enable": true), the skill should shuffle the album queue and respond to the next GetNextItem request with an out-of-order track. If shuffle mode is turned off by the user (Alexa sends a SetShuffle request with "enable": false), the skill should respond to the next GetNextItem request with the following track in the album.

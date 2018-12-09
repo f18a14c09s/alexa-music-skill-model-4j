@@ -1,11 +1,12 @@
-package f18a14c09s.integration.alexa.data;
+package f18a14c09s.integration.alexa.music.data;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
-import f18a14c09s.integration.alexa.music.data.*;
+import f18a14c09s.integration.alexa.data.GenericErrorResponse;
+import f18a14c09s.integration.alexa.data.ResponseMap;
 
 import java.io.IOException;
 import java.util.*;
@@ -23,7 +24,9 @@ public class ResponseDeserializer extends StdDeserializer<Response> {
                 GetPreviousItemResponse.class);
         tempMap.put(new MusicRequestType("Alexa.Audio.PlayQueue", "GetNextItem.Response"), GetNextItemResponse.class);
         tempMap.put(new MusicRequestType("Alexa.Audio.PlayQueue", "GetView.Response"), GetViewResponse.class);
-        tempMap.put(new MusicRequestType("Alexa", "Response"), GenericResponse.class);
+        tempMap.put(new MusicRequestType("Alexa", "ErrorResponse"), GenericErrorResponse.class);
+        tempMap.put(new MusicRequestType("Alexa.Media", "ErrorResponse"), MediaErrorResponse.class);
+        tempMap.put(new MusicRequestType("Alexa.Audio", "ErrorResponse"), AudioErrorResponse.class);
         types = Collections.unmodifiableMap(tempMap);
     }
 

@@ -1,12 +1,9 @@
 package f18a14c09s.integration.alexa.music.data;
 
-import java.util.ArrayList;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Getter;
 import lombok.Setter;
-import f18a14c09s.integration.alexa.data.Request;
 
 /**
  * When Alexa receives a content identifier from a skill's GetPlayableContent response and is ready to start immediate playback of the content on an Alexa device, Alexa sends an Initiate request. The request includes the content identifier, and the skill responds with the stream URI for immediate playback of the content.

@@ -1,10 +1,10 @@
 package f18a14c09s.integration.alexa.music.data;
-import java.util.ArrayList;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Getter;
 import lombok.Setter;
-import f18a14c09s.integration.alexa.data.Request;/**
+
+/**
  * When music is playing on an Alexa device and the user navigates to the "play queue" view in the Alexa app, Alexa sends a GetView request to the skill. The skill responds with the item currently playing and (optionally) a list of up to ten upcoming items for display in the app. Alexa uses the response only for display in the Alexa app so that users can see the items that are coming up next.
  */
 @JsonDeserialize

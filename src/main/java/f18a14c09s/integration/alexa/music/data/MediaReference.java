@@ -13,7 +13,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class MediaReference {
+public class MediaReference<Value> {
     /**
      * Identifies the interface of the property object. In the case of music skills, the namespace will be Alexa.Audio.PlayQueue. The value of this field identifies the possible types for the name and value fields in this object.
      */
@@ -25,5 +25,5 @@ public class MediaReference {
     /**
      * Identifies a specific piece of content. For the Alexa.Audio.PlayQueue namespace, and item name, the value property must contain an ItemReference object. See the following example.
      */
-    private Object value;
+    private Value value;
 }

@@ -1,10 +1,10 @@
 package f18a14c09s.integration.alexa.music.data;
-import java.util.ArrayList;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Getter;
 import lombok.Setter;
-import f18a14c09s.integration.alexa.data.Request;/**
+
+/**
  * Alexa sends a GetNextItem request to the skill when a content queue exists and playback has started on the Alexa device, and one of the following is true:
  */
 @JsonDeserialize
