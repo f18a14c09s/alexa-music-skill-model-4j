@@ -5,7 +5,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
-import f18a14c09s.integration.alexa.data.RequestMap;
+import f18a14c09s.integration.alexa.music.messaging.data.RequestMap;
+import f18a14c09s.integration.alexa.music.messaging.data.*;
 
 import java.io.IOException;
 import java.util.*;
