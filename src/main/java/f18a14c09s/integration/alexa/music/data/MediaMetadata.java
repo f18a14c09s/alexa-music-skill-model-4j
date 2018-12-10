@@ -5,10 +5,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 import java.util.*;
 
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", defaultImpl = ResolvedSelectionCriteria.BasicEntityAttribute.class, visible = true)
-@JsonSubTypes({@JsonSubTypes.Type(value = AlbumMetadata.class, name = MediaMetadata.MediaMetadataTypeName.ALBUM),
-        @JsonSubTypes.Type(value = TrackMetadata.class, name = MediaMetadata.MediaMetadataTypeName.TRACK)})
-public class MediaMetadata extends BaseMetadata<MediaMetadata.Type> {
+//@JsonSubTypes({@JsonSubTypes.Type(value = AlbumMetadata.class, name = MediaMetadata.MediaMetadataTypeName.ALBUM),
+//        @JsonSubTypes.Type(value = TrackMetadata.class, name = MediaMetadata.MediaMetadataTypeName.TRACK)})
+public abstract class MediaMetadata extends BaseMetadata<MediaMetadata.Type> {
     public enum Type {
         ALBUM(MediaMetadataTypeName.ALBUM),
         ARTIST(MediaMetadataTypeName.ARTIST),

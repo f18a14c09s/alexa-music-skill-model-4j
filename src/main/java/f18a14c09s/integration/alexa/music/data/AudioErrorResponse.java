@@ -1,9 +1,11 @@
 package f18a14c09s.integration.alexa.music.data;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import f18a14c09s.integration.alexa.data.AbstractErrorResponse;
 import lombok.Getter;
 import lombok.Setter;
 
+@JsonDeserialize
 public class AudioErrorResponse extends AbstractErrorResponse<AudioErrorResponse.Payload> {
     @Getter
     @Setter

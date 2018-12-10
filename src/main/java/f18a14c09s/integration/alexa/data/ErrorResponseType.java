@@ -156,5 +156,16 @@ public enum ErrorResponseType {
     /**
      * Indicates that the user has reached their skip limit. With this error type, the skill can return an optional parameter which Alexa can use to render an error prompt (VUI) or display an error message (GUI) informing the user how long they should wait before trying to skip again.
      */
-    SKIP_LIMIT_REACHED
+    SKIP_LIMIT_REACHED,
+    /**
+     * If your skill can successfully find playable content to satisfy the request, it should respond with
+     * GetPlayableContent.Response. If not, the skill should respond with a media-specific CONTENT_NOT_FOUND error response
+     * (https://developer.amazon.com/docs/music-skills/api-getplayablecontent.html).
+     */
+    CONTENT_NOT_FOUND,
+    /**
+     * When there is no previous item to return, the skill should respond with an ErrorResponse of type ITEM_NOT_FOUND
+     * (https://developer.amazon.com/docs/music-skills/api-getpreviousitem.html).
+     */
+    ITEM_NOT_FOUND
 }

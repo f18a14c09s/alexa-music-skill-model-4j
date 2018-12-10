@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
+import static f18a14c09s.integration.alexa.data.ErrorResponseType.ITEM_NOT_FOUND;
 import static f18a14c09s.testing.TestUtil.assertInstanceOfAndCast;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -20,7 +21,7 @@ public class GetPreviousItemResponseTest2 {
         ObjectMapper jsonMapper = new ObjectMapper();
         Response obj = jsonMapper.readValue(TEST_CASE, Response.class);
         AudioErrorResponse subject = assertInstanceOfAndCast(obj, AudioErrorResponse.class);
-        assertEquals(subject.getPayload().getType(), "ITEM_NOT_FOUND");
+        assertEquals(subject.getPayload().getType(), ITEM_NOT_FOUND);
         assertEquals(subject.getPayload().getMessage(), "There is no previous item.");
         assertEquals(subject.getHeader().getMessageId(), "2cae4d53-6bc1-4f8f-aa98-7dd2727ca84b");
         assertEquals(subject.getHeader().getNamespace(), "Alexa.Audio");

@@ -5,6 +5,13 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
+import static f18a14c09s.integration.alexa.data.SpeechType.PLAIN_TEXT;
+import static f18a14c09s.integration.alexa.music.data.ControlName.*;
+import static f18a14c09s.integration.alexa.music.data.ControlType.COMMAND;
+import static f18a14c09s.integration.alexa.music.data.ControlType.TOGGLE;
+import static f18a14c09s.integration.alexa.music.data.MediaMetadata.Type.TRACK;
+import static f18a14c09s.integration.alexa.music.data.PlaybackInfoType.DEFAULT;
+import static f18a14c09s.integration.alexa.music.data.PlaybackMethodType.ALEXA_AUDIO_PLAYER_QUEUE;
 import static f18a14c09s.testing.TestUtil.assertInstanceOfAndCast;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,25 +29,25 @@ public class InitiateResponseTest1 {
         InitiateResponse subject = (InitiateResponse) obj;
         AudioPlayerQueue audioPlayerQueue =
                 assertInstanceOfAndCast(subject.getPayload().getPlaybackMethod(), AudioPlayerQueue.class);
-        assertEquals(audioPlayerQueue.getType(), "ALEXA_AUDIO_PLAYER_QUEUE");
+        assertEquals(audioPlayerQueue.getType(), ALEXA_AUDIO_PLAYER_QUEUE);
         assertEquals(audioPlayerQueue.getId(), "76f325d5-a648-4e8f-87ad-6e53cf99e4c7");
         ToggleQueueControl toggleQueueControl =
                 assertInstanceOfAndCast(audioPlayerQueue.getControls().get(0), ToggleQueueControl.class);
-        assertEquals(toggleQueueControl.getType(), "TOGGLE");
-        assertEquals(toggleQueueControl.getName(), "SHUFFLE");
+        assertEquals(toggleQueueControl.getType(), TOGGLE);
+        assertEquals(toggleQueueControl.getName(), SHUFFLE);
         assertTrue((boolean) toggleQueueControl.getEnabled());
         assertFalse((boolean) toggleQueueControl.getSelected());
         toggleQueueControl = assertInstanceOfAndCast(audioPlayerQueue.getControls().get(1), ToggleQueueControl.class);
-        assertEquals(toggleQueueControl.getType(), "TOGGLE");
-        assertEquals(toggleQueueControl.getName(), "LOOP");
+        assertEquals(toggleQueueControl.getType(), TOGGLE);
+        assertEquals(toggleQueueControl.getName(), LOOP);
         assertTrue((boolean) toggleQueueControl.getEnabled());
         assertFalse((boolean) toggleQueueControl.getSelected());
         assertEquals(audioPlayerQueue.getRules().getFeedback().getType(), "PREFERENCE");
         assertTrue((boolean) audioPlayerQueue.getRules().getFeedback().getEnabled());
         assertEquals(audioPlayerQueue.getFirstItem().getId(), "e73befbe-8c27-4e4b-ab0c-9865ce8516f0");
-        assertEquals(audioPlayerQueue.getFirstItem().getPlaybackInfo().getType(), "DEFAULT");
-        assertEquals(audioPlayerQueue.getFirstItem().getMetadata().getType(), "TRACK");
-        assertEquals(audioPlayerQueue.getFirstItem().getMetadata().getName().getSpeech().getType(), "PLAIN_TEXT");
+        assertEquals(audioPlayerQueue.getFirstItem().getPlaybackInfo().getType(), DEFAULT);
+        assertEquals(audioPlayerQueue.getFirstItem().getMetadata().getType(), TRACK);
+        assertEquals(audioPlayerQueue.getFirstItem().getMetadata().getName().getSpeech().getType(), PLAIN_TEXT);
         assertEquals(audioPlayerQueue.getFirstItem().getMetadata().getName().getSpeech().getText(), "jeremy");
         assertEquals(audioPlayerQueue.getFirstItem().getMetadata().getName().getDisplay(), "Jeremy");
         assertEquals(audioPlayerQueue.getFirstItem().getMetadata().getArt().getSources().get(0).getUrl(),
@@ -119,11 +126,11 @@ public class InitiateResponseTest1 {
                 .get(4)
                 .getHeightPixels()).longValue(), 600L);
         assertEquals(((Number) audioPlayerQueue.getFirstItem().getDurationInMilliseconds()).longValue(), 318000L);
-        assertEquals(audioPlayerQueue.getFirstItem().getControls().get(0).getType(), "COMMAND");
-        assertEquals(audioPlayerQueue.getFirstItem().getControls().get(0).getName(), "NEXT");
+        assertEquals(audioPlayerQueue.getFirstItem().getControls().get(0).getType(), COMMAND);
+        assertEquals(audioPlayerQueue.getFirstItem().getControls().get(0).getName(), NEXT);
         assertTrue((boolean) audioPlayerQueue.getFirstItem().getControls().get(0).getEnabled());
-        assertEquals(audioPlayerQueue.getFirstItem().getControls().get(1).getType(), "COMMAND");
-        assertEquals(audioPlayerQueue.getFirstItem().getControls().get(1).getName(), "PREVIOUS");
+        assertEquals(audioPlayerQueue.getFirstItem().getControls().get(1).getType(), COMMAND);
+        assertEquals(audioPlayerQueue.getFirstItem().getControls().get(1).getName(), PREVIOUS);
         assertFalse((boolean) audioPlayerQueue.getFirstItem().getControls().get(1).getEnabled());
         assertTrue((boolean) audioPlayerQueue.getFirstItem().getRules().getFeedbackEnabled());
         assertEquals(audioPlayerQueue.getFirstItem().getStream().getId(), "STREAMID_92_14629004");

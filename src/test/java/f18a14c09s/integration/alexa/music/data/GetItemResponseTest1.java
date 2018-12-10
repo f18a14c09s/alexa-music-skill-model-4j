@@ -5,6 +5,12 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
+import static f18a14c09s.integration.alexa.data.SpeechType.PLAIN_TEXT;
+import static f18a14c09s.integration.alexa.music.data.ControlName.NEXT;
+import static f18a14c09s.integration.alexa.music.data.ControlName.PREVIOUS;
+import static f18a14c09s.integration.alexa.music.data.ControlType.COMMAND;
+import static f18a14c09s.integration.alexa.music.data.MediaMetadata.Type.TRACK;
+import static f18a14c09s.integration.alexa.music.data.PlaybackInfoType.DEFAULT;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -22,10 +28,9 @@ public class GetItemResponseTest1 {
 
 
         assertEquals(subject.getPayload().getItem().getId(), "e73befbe-8c27-4e4b-ab0c-9865ce8516f0");
-        assertEquals(subject.getPayload().getItem().getPlaybackInfo().getType(), "DEFAULT");
-        assertEquals(subject.getPayload().getItem().getMetadata().getType(), "TRACK");
-
-        assertEquals(subject.getPayload().getItem().getMetadata().getName().getSpeech().getType(), "PLAIN_TEXT");
+        assertEquals(subject.getPayload().getItem().getPlaybackInfo().getType(), DEFAULT);
+        assertEquals(subject.getPayload().getItem().getMetadata().getType(), TRACK);
+        assertEquals(subject.getPayload().getItem().getMetadata().getName().getSpeech().getType(), PLAIN_TEXT);
         assertEquals(subject.getPayload().getItem().getMetadata().getName().getSpeech().getText(), "Float On");
         assertEquals(subject.getPayload().getItem().getMetadata().getName().getDisplay(), "float on");
 
@@ -115,11 +120,11 @@ public class GetItemResponseTest1 {
                 .get(4)
                 .getHeightPixels()).longValue(), 600L);
         assertEquals(((Number) subject.getPayload().getItem().getDurationInMilliseconds()).longValue(), 208000L);
-        assertEquals(subject.getPayload().getItem().getControls().get(0).getType(), "COMMAND");
-        assertEquals(subject.getPayload().getItem().getControls().get(0).getName(), "NEXT");
+        assertEquals(subject.getPayload().getItem().getControls().get(0).getType(), COMMAND);
+        assertEquals(subject.getPayload().getItem().getControls().get(0).getName(), NEXT);
         assertTrue((boolean) subject.getPayload().getItem().getControls().get(0).getEnabled());
-        assertEquals(subject.getPayload().getItem().getControls().get(1).getType(), "COMMAND");
-        assertEquals(subject.getPayload().getItem().getControls().get(1).getName(), "PREVIOUS");
+        assertEquals(subject.getPayload().getItem().getControls().get(1).getType(), COMMAND);
+        assertEquals(subject.getPayload().getItem().getControls().get(1).getName(), PREVIOUS);
         assertFalse((boolean) subject.getPayload().getItem().getControls().get(1).getEnabled());
         assertTrue((boolean) subject.getPayload().getItem().getRules().getFeedbackEnabled());
         assertEquals(subject.getPayload().getItem().getStream().getId(), "STREAMID_92_14629004");

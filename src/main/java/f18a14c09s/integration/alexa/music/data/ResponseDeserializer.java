@@ -27,6 +27,7 @@ public class ResponseDeserializer extends StdDeserializer<Response> {
         tempMap.put(new MusicRequestType("Alexa", "ErrorResponse"), GenericErrorResponse.class);
         tempMap.put(new MusicRequestType("Alexa.Media", "ErrorResponse"), MediaErrorResponse.class);
         tempMap.put(new MusicRequestType("Alexa.Audio", "ErrorResponse"), AudioErrorResponse.class);
+        tempMap.put(new MusicRequestType("Alexa", "Response"), GenericResponse.class);
         types = Collections.unmodifiableMap(tempMap);
     }
 
@@ -35,7 +36,7 @@ public class ResponseDeserializer extends StdDeserializer<Response> {
     }
 
     @Override
-    public Response deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+    public Response deserialize(JsonParser p, DeserializationContext ctxt) throws IOException {
         JsonNode object = p.getCodec().readTree(p);
         Optional<JsonNode> header = Optional.ofNullable(object.get("header"));
         Optional<String> namespace = header.map(hdr -> hdr.get("namespace")).map(JsonNode::asText);

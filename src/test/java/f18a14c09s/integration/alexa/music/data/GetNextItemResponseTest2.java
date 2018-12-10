@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
+import static f18a14c09s.integration.alexa.data.ErrorResponseType.SKIP_LIMIT_REACHED;
+import static f18a14c09s.integration.alexa.music.data.AudioErrorRetryPeriod.DAILY;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
@@ -19,9 +21,9 @@ public class GetNextItemResponseTest2 {
         ObjectMapper jsonMapper = new ObjectMapper();
         Response obj = jsonMapper.readValue(TEST_CASE, Response.class);
         AudioErrorResponse subject = (AudioErrorResponse) obj;
-        assertEquals(subject.getPayload().getType(), "SKIP_LIMIT_REACHED");
+        assertEquals(subject.getPayload().getType(), SKIP_LIMIT_REACHED);
         assertEquals(subject.getPayload().getMessage(), "The user has reached their daily skip limit.");
-        assertEquals(subject.getPayload().getRetryPeriod(), "DAILY");
+        assertEquals(subject.getPayload().getRetryPeriod(), DAILY);
         assertEquals(subject.getHeader().getMessageId(), "2cae4d53-6bc1-4f8f-aa98-7dd2727ca84b");
         assertEquals(subject.getHeader().getNamespace(), "Alexa.Audio");
         assertEquals(subject.getHeader().getName(), "ErrorResponse");
