@@ -1,9 +1,10 @@
 package f18a14c09s.integration.alexa.music.data;
-import java.util.ArrayList;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Getter;
-import lombok.Setter;/**
+import lombok.Setter;
+
+/**
  * Contains the stream URI that Alexa sends to devices as part of an AudioPlayer play directive, along with other stream-related information such as the playback offset in milliseconds, the expiration time of the URI, and an identifier for the stream.
  */
 @Getter

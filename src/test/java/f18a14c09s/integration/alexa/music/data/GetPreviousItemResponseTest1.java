@@ -1,9 +1,10 @@
 package f18a14c09s.integration.alexa.music.data;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
+
 import java.io.IOException;
-import java.util.*;
-import java.util.function.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 /**
  * When the skill has a previous item to return, it respond with a GetPreviousItem.Response as in the following example.

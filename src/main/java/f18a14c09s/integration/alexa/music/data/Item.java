@@ -1,11 +1,10 @@
 package f18a14c09s.integration.alexa.music.data;
 
-import java.util.ArrayList;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.*;
 
 /**
  * An (audio) item that contains within it an identifier and metadata (for example, art URLs, author name, title, etc.), and a Stream containing the playback URL. Note that in some cases, the duration of an item needs to be displayed when there is no stream for that item. That is why the duration field is a peer to the stream field and not a member of it.

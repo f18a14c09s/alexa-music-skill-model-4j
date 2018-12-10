@@ -1,9 +1,10 @@
 package f18a14c09s.integration.alexa.music.data;
-import java.util.ArrayList;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Getter;
-import lombok.Setter;/**
+import lombok.Setter;
+
+/**
  * Describes the location of a request. Use this information to enforce geographical restrictions on content or decide which language version of metadata to return to Alexa for media items.
  */
 @Getter

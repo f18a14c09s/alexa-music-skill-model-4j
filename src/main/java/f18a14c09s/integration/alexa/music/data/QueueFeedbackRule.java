@@ -1,9 +1,10 @@
 package f18a14c09s.integration.alexa.music.data;
-import java.util.ArrayList;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Getter;
-import lombok.Setter;/**
+import lombok.Setter;
+
+/**
  * An object that describes whether feedback of a specific type is allowed at the queue level.
  */
 @Getter

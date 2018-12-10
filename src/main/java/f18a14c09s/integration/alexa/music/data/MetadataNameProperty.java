@@ -1,9 +1,9 @@
 package f18a14c09s.integration.alexa.music.data;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import f18a14c09s.integration.alexa.data.SpeechInfo;
 import lombok.Getter;
 import lombok.Setter;
-import f18a14c09s.integration.alexa.data.SpeechInfo;
 
 /**
  * Metadata used for voice prompt or display use cases of entity (artist, song, etc.) names.

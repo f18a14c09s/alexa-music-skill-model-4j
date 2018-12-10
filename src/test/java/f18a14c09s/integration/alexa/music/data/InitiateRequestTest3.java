@@ -1,9 +1,10 @@
 package f18a14c09s.integration.alexa.music.data;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
+
 import java.io.IOException;
-import java.util.*;
-import java.util.function.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 /**
  * The following example demonstrates the request that occurs when a user requests to shuffle content, for example "Alexa, shuffle songs by Lady Gaga."

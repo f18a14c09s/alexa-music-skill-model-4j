@@ -4,11 +4,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.*;
-import java.util.function.*;
 
 import static f18a14c09s.testing.TestUtil.assertInstanceOfAndCast;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * When there is no previous item to return, the skill should respond with an ErrorResponse of type ITEM_NOT_FOUND. For example, when the user says "Alexa, previous" while listening to the first track in a queue, the skill sends an error response as in the following example.

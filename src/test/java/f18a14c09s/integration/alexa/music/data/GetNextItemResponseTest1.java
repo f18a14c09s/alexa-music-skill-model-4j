@@ -1,9 +1,10 @@
 package f18a14c09s.integration.alexa.music.data;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
+
 import java.io.IOException;
-import java.util.*;
-import java.util.function.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 /**
  * In the following example, the skill returns information about the next item that Alexa should play for the user.

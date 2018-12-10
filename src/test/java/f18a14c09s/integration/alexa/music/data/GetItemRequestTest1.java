@@ -4,10 +4,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.*;
-import java.util.function.*;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Imagine the following scenario: Alexa is playing the first song from a skill's Initiate response. The user pauses playback, then one hour later says "Alexa, resume". The stream URI is now expired, so Alexa will send a GetItem request to obtain a new, non-expired stream URI. See the following example.

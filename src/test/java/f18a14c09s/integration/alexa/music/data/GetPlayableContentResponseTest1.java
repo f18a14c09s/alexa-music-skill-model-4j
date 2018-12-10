@@ -4,11 +4,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.*;
-import java.util.function.*;
 
 import static f18a14c09s.testing.TestUtil.assertInstanceOfAndCast;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * The following example demonstrates a response that satisfies an example request from a user that said "Alexa, play the song Poker Face by Lady Gaga".

@@ -1,10 +1,12 @@
 package f18a14c09s.integration.alexa.music.data;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
+
 import java.io.IOException;
-import java.util.*;
-import java.util.function.*;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 /**
  * When a user asks Alexa to turn off loop mode, Alexa sends a SetLoop request like the following example.
  */

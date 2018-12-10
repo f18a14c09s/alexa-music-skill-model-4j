@@ -4,8 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.*;
-import java.util.function.*;
 
 import static f18a14c09s.testing.TestUtil.assertInstanceOfAndCast;
 import static org.junit.jupiter.api.Assertions.*;

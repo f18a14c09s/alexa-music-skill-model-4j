@@ -1,9 +1,10 @@
 package f18a14c09s.integration.alexa.music.data;
-import java.util.ArrayList;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Getter;
-import lombok.Setter;/**
+import lombok.Setter;
+
+/**
  * Contains information about a single size of a media content's art (for example, album cover art).
  */
 @Getter

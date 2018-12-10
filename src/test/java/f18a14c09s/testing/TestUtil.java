@@ -1,7 +1,5 @@
 package f18a14c09s.testing;
 
-import java.util.*;
-
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestUtil {
