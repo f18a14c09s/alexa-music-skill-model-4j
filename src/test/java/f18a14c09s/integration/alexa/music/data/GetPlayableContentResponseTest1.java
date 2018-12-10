@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
+import static f18a14c09s.integration.alexa.data.SpeechType.PLAIN_TEXT;
+import static f18a14c09s.integration.alexa.music.data.EntityType.TRACK;
 import static f18a14c09s.testing.TestUtil.assertInstanceOfAndCast;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -23,8 +25,8 @@ public class GetPlayableContentResponseTest1 {
         assertEquals(subject.getPayload().getContent().getId(), "1021012f-12bb-4938-9723-067a4338b6d0");
         TrackMetadata trackMetadata =
                 assertInstanceOfAndCast(subject.getPayload().getContent().getMetadata(), TrackMetadata.class);
-        assertEquals(trackMetadata.getType(), "TRACK");
-        assertEquals(trackMetadata.getName().getSpeech().getType(), "PLAIN_TEXT");
+        assertEquals(trackMetadata.getType(), MediaMetadata.Type.TRACK);
+        assertEquals(trackMetadata.getName().getSpeech().getType(), PLAIN_TEXT);
         assertEquals(trackMetadata.getName().getSpeech().getText(), "poker face");
         assertEquals(trackMetadata.getName().getDisplay(), "Poker Face");
         assertEquals(trackMetadata
@@ -32,7 +34,7 @@ public class GetPlayableContentResponseTest1 {
                 .get(0)
                 .getName()
                 .getSpeech()
-                .getType(), "PLAIN_TEXT");
+                .getType(), PLAIN_TEXT);
         assertEquals(trackMetadata
                 .getAuthors()
                 .get(0)

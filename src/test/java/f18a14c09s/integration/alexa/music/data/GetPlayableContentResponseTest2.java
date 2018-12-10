@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
+import static f18a14c09s.testing.TestUtil.assertInstanceOfAndCast;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -19,9 +20,7 @@ public class GetPlayableContentResponseTest2 {
     void testDeserialization() throws IOException {
         ObjectMapper jsonMapper = new ObjectMapper();
         Response obj = jsonMapper.readValue(TEST_CASE, Response.class);
-        assertTrue(obj instanceof MediaErrorResponse);
-        MediaErrorResponse subject = (MediaErrorResponse) obj;
-
+        MediaErrorResponse subject = assertInstanceOfAndCast(obj, MediaErrorResponse.class);
         assertEquals(subject.getPayload().getType(), "CONTENT_NOT_FOUND");
         assertEquals(subject.getPayload().getMessage(), "Requested content could not be found.");
         assertEquals(subject.getHeader().getMessageId(), "2cae4d53-6bc1-4f8f-aa98-7dd2727ca84b");

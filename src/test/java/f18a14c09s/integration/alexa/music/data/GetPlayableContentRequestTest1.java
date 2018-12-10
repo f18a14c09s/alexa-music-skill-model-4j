@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
+import static f18a14c09s.integration.alexa.music.data.EntityType.MEDIA_TYPE;
+import static f18a14c09s.integration.alexa.music.data.EntityType.TRACK;
+import static f18a14c09s.testing.TestUtil.assertInstanceOfAndCast;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -29,28 +32,16 @@ public class GetPlayableContentRequestTest1 {
         assertEquals(subject.getPayload().getRequestContext().getLocation().getOriginatingLocale(), "en-US");
         assertEquals(subject.getPayload().getRequestContext().getLocation().getCountryCode(), "US");
         assertTrue((boolean) subject.getPayload().getFilters().getExplicitLanguageAllowed());
-        assertTrue(subject.getPayload()
-                .getSelectionCriteria()
-                .getAttributes()
-                .get(0) instanceof ResolvedSelectionCriteria.BasicEntityAttribute);
         ResolvedSelectionCriteria.BasicEntityAttribute entityAttribute =
-                (ResolvedSelectionCriteria.BasicEntityAttribute) subject.getPayload()
-                        .getSelectionCriteria()
-                        .getAttributes()
-                        .get(0);
-        assertEquals(entityAttribute.getType(), "TRACK");
+                assertInstanceOfAndCast(subject.getPayload().getSelectionCriteria().getAttributes().get(0),
+                        ResolvedSelectionCriteria.BasicEntityAttribute.class);
+        assertEquals(entityAttribute.getType(), TRACK);
         assertEquals(entityAttribute.getEntityId(), "138545995");
-        assertTrue(subject.getPayload()
-                .getSelectionCriteria()
-                .getAttributes()
-                .get(0) instanceof ResolvedSelectionCriteria.MediaTypeAttribute);
         ResolvedSelectionCriteria.MediaTypeAttribute mediaType =
-                (ResolvedSelectionCriteria.MediaTypeAttribute) subject.getPayload()
-                        .getSelectionCriteria()
-                        .getAttributes()
-                        .get(0);
-        assertEquals(mediaType.getType(), "MEDIA_TYPE");
-        assertEquals(mediaType.getValue(), "TRACK");
+                assertInstanceOfAndCast(subject.getPayload().getSelectionCriteria().getAttributes().get(1),
+                        ResolvedSelectionCriteria.MediaTypeAttribute.class);
+        assertEquals(mediaType.getType(), MEDIA_TYPE);
+        assertEquals(mediaType.getValue(), ResolvedSelectionCriteria.MediaTypeAttrValue.TRACK);
         assertEquals(subject.getHeader().getMessageId(), "2cae4d53-6bc1-4f8f-aa98-7dd2727ca84b");
         assertEquals(subject.getHeader().getNamespace(), "Alexa.Media.Search");
         assertEquals(subject.getHeader().getName(), "GetPlayableContent");
