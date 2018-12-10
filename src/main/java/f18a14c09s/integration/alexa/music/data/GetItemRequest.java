@@ -23,6 +23,6 @@ public class GetItemRequest extends Request<GetItemRequest.Payload> {
         /**
          * An object identifying the item to get. See the MediaReference object for more information.
          */
-        private MediaReference targetItemReference;
+        private MediaReference<ItemReference> targetItemReference;
     }
 }
