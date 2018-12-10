@@ -1,16 +1,17 @@
-package f18a14c09s.integration.alexa.music.data;import static f18a14c09s.integration.alexa.data.SpeechType.PLAIN_TEXT;
+package f18a14c09s.integration.alexa.music.data;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import javafx.scene.control.Toggle;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.*;
-import java.util.function.*;
 
+import static f18a14c09s.integration.alexa.data.SpeechType.PLAIN_TEXT;
+import static f18a14c09s.integration.alexa.music.data.ArtSourceSize.*;
 import static f18a14c09s.integration.alexa.music.data.ControlName.*;
 import static f18a14c09s.integration.alexa.music.data.ControlType.COMMAND;
 import static f18a14c09s.integration.alexa.music.data.ControlType.TOGGLE;
+import static f18a14c09s.integration.alexa.music.data.Feedback.Type.PREFERENCE;
+import static f18a14c09s.integration.alexa.music.data.Feedback.Value.POSITIVE;
 import static f18a14c09s.integration.alexa.music.data.MediaMetadata.Type.TRACK;
 import static f18a14c09s.integration.alexa.music.data.PlaybackInfoType.DEFAULT;
 import static f18a14c09s.integration.alexa.music.data.PlaybackMethodType.ALEXA_AUDIO_PLAYER_QUEUE;
@@ -51,7 +52,7 @@ public class PlaybackMethodTest1 {
         assertEquals(subject.getFirstItem().getMetadata().getName().getDisplay(), "Thrift Shop");
         assertEquals(subject.getFirstItem().getMetadata().getArt().getSources().get(0).getUrl(),
                 "https://example.com/images/cover/48x48-000000-80-0-0.jpg");
-        assertEquals(subject.getFirstItem().getMetadata().getArt().getSources().get(0).getSize(), "X_SMALL");
+        assertEquals(subject.getFirstItem().getMetadata().getArt().getSources().get(0).getSize(), X_SMALL);
         assertEquals(((Number) subject.getFirstItem()
                 .getMetadata()
                 .getArt()
@@ -66,7 +67,7 @@ public class PlaybackMethodTest1 {
                 .getHeightPixels()).longValue(), 48L);
         assertEquals(subject.getFirstItem().getMetadata().getArt().getSources().get(1).getUrl(),
                 "https://example.com/images/cover/60x60-000000-80-0-0.jpg");
-        assertEquals(subject.getFirstItem().getMetadata().getArt().getSources().get(1).getSize(), "SMALL");
+        assertEquals(subject.getFirstItem().getMetadata().getArt().getSources().get(1).getSize(), SMALL);
         assertEquals(((Number) subject.getFirstItem()
                 .getMetadata()
                 .getArt()
@@ -81,7 +82,7 @@ public class PlaybackMethodTest1 {
                 .getHeightPixels()).longValue(), 60L);
         assertEquals(subject.getFirstItem().getMetadata().getArt().getSources().get(2).getUrl(),
                 "https://example.com/images/cover/110x110-000000-80-0-0.jpg");
-        assertEquals(subject.getFirstItem().getMetadata().getArt().getSources().get(2).getSize(), "MEDIUM");
+        assertEquals(subject.getFirstItem().getMetadata().getArt().getSources().get(2).getSize(), MEDIUM);
         assertEquals(((Number) subject.getFirstItem()
                 .getMetadata()
                 .getArt()
@@ -96,7 +97,7 @@ public class PlaybackMethodTest1 {
                 .getHeightPixels()).longValue(), 110L);
         assertEquals(subject.getFirstItem().getMetadata().getArt().getSources().get(3).getUrl(),
                 "https://example.com/images/cover/256x256-000000-80-0-0.jpg");
-        assertEquals(subject.getFirstItem().getMetadata().getArt().getSources().get(3).getSize(), "LARGE");
+        assertEquals(subject.getFirstItem().getMetadata().getArt().getSources().get(3).getSize(), LARGE);
         assertEquals(((Number) subject.getFirstItem()
                 .getMetadata()
                 .getArt()
@@ -111,7 +112,7 @@ public class PlaybackMethodTest1 {
                 .getHeightPixels()).longValue(), 256L);
         assertEquals(subject.getFirstItem().getMetadata().getArt().getSources().get(4).getUrl(),
                 "https://example.com/images/cover/600x600-000000-80-0-0.jpg");
-        assertEquals(subject.getFirstItem().getMetadata().getArt().getSources().get(4).getSize(), "X_LARGE");
+        assertEquals(subject.getFirstItem().getMetadata().getArt().getSources().get(4).getSize(), X_LARGE);
         assertEquals(((Number) subject.getFirstItem()
                 .getMetadata()
                 .getArt()
@@ -137,8 +138,8 @@ public class PlaybackMethodTest1 {
                 "http://cdn.example.com/api/1/a2f318467fbf2829996adc0880e0abd03d03b1ba6ac.mp3");
         assertEquals(((Number) subject.getFirstItem().getStream().getOffsetInMilliseconds()).longValue(), 0L);
         assertEquals(subject.getFirstItem().getStream().getValidUntil(), "2018-05-10T19:11:35Z");
-        assertEquals(subject.getFirstItem().getFeedback().getType(), "PREFERENCE");
-        assertEquals(subject.getFirstItem().getFeedback().getValue(), "POSITIVE");
+        assertEquals(subject.getFirstItem().getFeedback().getType(), PREFERENCE);
+        assertEquals(subject.getFirstItem().getFeedback().getValue(), POSITIVE);
         assertEquals(subject.getType(), ALEXA_AUDIO_PLAYER_QUEUE);
     }
 }

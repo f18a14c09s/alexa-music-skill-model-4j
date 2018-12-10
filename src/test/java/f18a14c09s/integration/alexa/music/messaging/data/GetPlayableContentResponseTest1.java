@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 
 import static f18a14c09s.integration.alexa.data.SpeechType.PLAIN_TEXT;
+import static f18a14c09s.integration.alexa.music.data.ArtSourceSize.*;
 import static f18a14c09s.testing.TestUtil.assertInstanceOfAndCast;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -36,7 +37,7 @@ public class GetPlayableContentResponseTest1 {
 
         assertEquals(subject.getPayload().getContent().getMetadata().getArt().getSources().get(0).getUrl(),
                 "https://example.com/images/cover/48x48-000000-80-0-0.jpg");
-        assertEquals(subject.getPayload().getContent().getMetadata().getArt().getSources().get(0).getSize(), "X_SMALL");
+        assertEquals(subject.getPayload().getContent().getMetadata().getArt().getSources().get(0).getSize(), X_SMALL);
         assertEquals(((Number) subject.getPayload()
                 .getContent()
                 .getMetadata()
@@ -53,7 +54,7 @@ public class GetPlayableContentResponseTest1 {
                 .getHeightPixels()).longValue(), 48L);
         assertEquals(subject.getPayload().getContent().getMetadata().getArt().getSources().get(1).getUrl(),
                 "https://example.com/images/cover/60x60-000000-80-0-0.jpg");
-        assertEquals(subject.getPayload().getContent().getMetadata().getArt().getSources().get(1).getSize(), "SMALL");
+        assertEquals(subject.getPayload().getContent().getMetadata().getArt().getSources().get(1).getSize(), SMALL);
         assertEquals(((Number) subject.getPayload()
                 .getContent()
                 .getMetadata()
@@ -70,7 +71,7 @@ public class GetPlayableContentResponseTest1 {
                 .getHeightPixels()).longValue(), 60L);
         assertEquals(subject.getPayload().getContent().getMetadata().getArt().getSources().get(2).getUrl(),
                 "https://example.com/images/cover/110x110-000000-80-0-0.jpg");
-        assertEquals(subject.getPayload().getContent().getMetadata().getArt().getSources().get(2).getSize(), "MEDIUM");
+        assertEquals(subject.getPayload().getContent().getMetadata().getArt().getSources().get(2).getSize(), MEDIUM);
         assertEquals(((Number) subject.getPayload()
                 .getContent()
                 .getMetadata()
@@ -87,7 +88,7 @@ public class GetPlayableContentResponseTest1 {
                 .getHeightPixels()).longValue(), 110L);
         assertEquals(subject.getPayload().getContent().getMetadata().getArt().getSources().get(3).getUrl(),
                 "https://example.com/images/cover/256x256-000000-80-0-0.jpg");
-        assertEquals(subject.getPayload().getContent().getMetadata().getArt().getSources().get(3).getSize(), "LARGE");
+        assertEquals(subject.getPayload().getContent().getMetadata().getArt().getSources().get(3).getSize(), LARGE);
         assertEquals(((Number) subject.getPayload()
                 .getContent()
                 .getMetadata()
@@ -104,7 +105,7 @@ public class GetPlayableContentResponseTest1 {
                 .getHeightPixels()).longValue(), 256L);
         assertEquals(subject.getPayload().getContent().getMetadata().getArt().getSources().get(4).getUrl(),
                 "https://example.com/images/cover/600x600-000000-80-0-0.jpg");
-        assertEquals(subject.getPayload().getContent().getMetadata().getArt().getSources().get(4).getSize(), "X_LARGE");
+        assertEquals(subject.getPayload().getContent().getMetadata().getArt().getSources().get(4).getSize(), X_LARGE);
         assertEquals(((Number) subject.getPayload()
                 .getContent()
                 .getMetadata()

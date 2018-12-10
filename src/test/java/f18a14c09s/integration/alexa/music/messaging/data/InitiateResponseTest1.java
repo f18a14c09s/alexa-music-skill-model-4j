@@ -8,9 +8,12 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 
 import static f18a14c09s.integration.alexa.data.SpeechType.PLAIN_TEXT;
+import static f18a14c09s.integration.alexa.music.data.ArtSourceSize.*;
 import static f18a14c09s.integration.alexa.music.data.ControlName.*;
 import static f18a14c09s.integration.alexa.music.data.ControlType.COMMAND;
 import static f18a14c09s.integration.alexa.music.data.ControlType.TOGGLE;
+import static f18a14c09s.integration.alexa.music.data.Feedback.Type.PREFERENCE;
+import static f18a14c09s.integration.alexa.music.data.Feedback.Value.POSITIVE;
 import static f18a14c09s.integration.alexa.music.data.MediaMetadata.Type.TRACK;
 import static f18a14c09s.integration.alexa.music.data.PlaybackInfoType.DEFAULT;
 import static f18a14c09s.integration.alexa.music.data.PlaybackMethodType.ALEXA_AUDIO_PLAYER_QUEUE;
@@ -54,7 +57,7 @@ public class InitiateResponseTest1 {
         assertEquals(audioPlayerQueue.getFirstItem().getMetadata().getName().getDisplay(), "Jeremy");
         assertEquals(audioPlayerQueue.getFirstItem().getMetadata().getArt().getSources().get(0).getUrl(),
                 "https://example.com/images/cover/48x48-000000-80-0-0.jpg");
-        assertEquals(audioPlayerQueue.getFirstItem().getMetadata().getArt().getSources().get(0).getSize(), "X_SMALL");
+        assertEquals(audioPlayerQueue.getFirstItem().getMetadata().getArt().getSources().get(0).getSize(), X_SMALL);
         assertEquals(((Number) audioPlayerQueue.getFirstItem()
                 .getMetadata()
                 .getArt()
@@ -69,7 +72,7 @@ public class InitiateResponseTest1 {
                 .getHeightPixels()).longValue(), 48L);
         assertEquals(audioPlayerQueue.getFirstItem().getMetadata().getArt().getSources().get(1).getUrl(),
                 "https://example.com/images/cover/60x60-000000-80-0-0.jpg");
-        assertEquals(audioPlayerQueue.getFirstItem().getMetadata().getArt().getSources().get(1).getSize(), "SMALL");
+        assertEquals(audioPlayerQueue.getFirstItem().getMetadata().getArt().getSources().get(1).getSize(), SMALL);
         assertEquals(((Number) audioPlayerQueue.getFirstItem()
                 .getMetadata()
                 .getArt()
@@ -84,7 +87,7 @@ public class InitiateResponseTest1 {
                 .getHeightPixels()).longValue(), 60L);
         assertEquals(audioPlayerQueue.getFirstItem().getMetadata().getArt().getSources().get(2).getUrl(),
                 "https://example.com/images/cover/110x110-000000-80-0-0.jpg");
-        assertEquals(audioPlayerQueue.getFirstItem().getMetadata().getArt().getSources().get(2).getSize(), "MEDIUM");
+        assertEquals(audioPlayerQueue.getFirstItem().getMetadata().getArt().getSources().get(2).getSize(), MEDIUM);
         assertEquals(((Number) audioPlayerQueue.getFirstItem()
                 .getMetadata()
                 .getArt()
@@ -99,7 +102,7 @@ public class InitiateResponseTest1 {
                 .getHeightPixels()).longValue(), 110L);
         assertEquals(audioPlayerQueue.getFirstItem().getMetadata().getArt().getSources().get(3).getUrl(),
                 "https://example.com/images/cover/256x256-000000-80-0-0.jpg");
-        assertEquals(audioPlayerQueue.getFirstItem().getMetadata().getArt().getSources().get(3).getSize(), "LARGE");
+        assertEquals(audioPlayerQueue.getFirstItem().getMetadata().getArt().getSources().get(3).getSize(), LARGE);
         assertEquals(((Number) audioPlayerQueue.getFirstItem()
                 .getMetadata()
                 .getArt()
@@ -114,7 +117,7 @@ public class InitiateResponseTest1 {
                 .getHeightPixels()).longValue(), 256L);
         assertEquals(audioPlayerQueue.getFirstItem().getMetadata().getArt().getSources().get(4).getUrl(),
                 "https://example.com/images/cover/600x600-000000-80-0-0.jpg");
-        assertEquals(audioPlayerQueue.getFirstItem().getMetadata().getArt().getSources().get(4).getSize(), "X_LARGE");
+        assertEquals(audioPlayerQueue.getFirstItem().getMetadata().getArt().getSources().get(4).getSize(), X_LARGE);
         assertEquals(((Number) audioPlayerQueue.getFirstItem()
                 .getMetadata()
                 .getArt()
@@ -140,8 +143,8 @@ public class InitiateResponseTest1 {
                 "https://cdn.example.com/api/1/a2f318467fbf2829996adc0880e0abd03d03b1ba6ac.mp3");
         assertEquals(((Number) audioPlayerQueue.getFirstItem().getStream().getOffsetInMilliseconds()).longValue(), 0L);
         assertEquals(audioPlayerQueue.getFirstItem().getStream().getValidUntil(), "2018-05-10T19:11:35Z");
-        assertEquals(audioPlayerQueue.getFirstItem().getFeedback().getType(), "PREFERENCE");
-        assertEquals(audioPlayerQueue.getFirstItem().getFeedback().getValue(), "POSITIVE");
+        assertEquals(audioPlayerQueue.getFirstItem().getFeedback().getType(), PREFERENCE);
+        assertEquals(audioPlayerQueue.getFirstItem().getFeedback().getValue(), POSITIVE);
         assertEquals(subject.getHeader().getMessageId(), "2cae4d53-6bc1-4f8f-aa98-7dd2727ca84b");
         assertEquals(subject.getHeader().getNamespace(), "Alexa.Media.Playback");
         assertEquals(subject.getHeader().getName(), "Initiate.Response");

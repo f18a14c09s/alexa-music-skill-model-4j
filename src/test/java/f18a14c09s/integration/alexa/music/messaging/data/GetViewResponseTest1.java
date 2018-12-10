@@ -7,9 +7,12 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 
 import static f18a14c09s.integration.alexa.data.SpeechType.PLAIN_TEXT;
+import static f18a14c09s.integration.alexa.music.data.ArtSourceSize.*;
 import static f18a14c09s.integration.alexa.music.data.ControlName.*;
 import static f18a14c09s.integration.alexa.music.data.ControlType.COMMAND;
 import static f18a14c09s.integration.alexa.music.data.ControlType.TOGGLE;
+import static f18a14c09s.integration.alexa.music.data.Feedback.Type.PREFERENCE;
+import static f18a14c09s.integration.alexa.music.data.Feedback.Value.POSITIVE;
 import static f18a14c09s.integration.alexa.music.data.MediaMetadata.Type.TRACK;
 import static f18a14c09s.integration.alexa.music.data.PlaybackInfoType.DEFAULT;
 import static f18a14c09s.testing.TestUtil.assertInstanceOfAndCast;
@@ -48,7 +51,7 @@ public class GetViewResponseTest1 {
         assertEquals(subject.getPayload().getItems().get(0).getMetadata().getArt().getSources().get(0).getUrl(),
                 "https://images.example.com/images/cover/album-art.jpg");
         assertEquals(subject.getPayload().getItems().get(0).getMetadata().getArt().getSources().get(0).getSize(),
-                "X_SMALL");
+                X_SMALL);
         assertEquals(((Number) subject.getPayload()
                 .getItems()
                 .get(0)
@@ -68,7 +71,7 @@ public class GetViewResponseTest1 {
         assertEquals(subject.getPayload().getItems().get(0).getMetadata().getArt().getSources().get(1).getUrl(),
                 "https://images.example.com/images/cover/album-art.jpg");
         assertEquals(subject.getPayload().getItems().get(0).getMetadata().getArt().getSources().get(1).getSize(),
-                "SMALL");
+                SMALL);
         assertEquals(((Number) subject.getPayload()
                 .getItems()
                 .get(0)
@@ -88,7 +91,7 @@ public class GetViewResponseTest1 {
         assertEquals(subject.getPayload().getItems().get(0).getMetadata().getArt().getSources().get(2).getUrl(),
                 "https://images.example.com/images/cover/album-art.jpg");
         assertEquals(subject.getPayload().getItems().get(0).getMetadata().getArt().getSources().get(2).getSize(),
-                "MEDIUM");
+                MEDIUM);
         assertEquals(((Number) subject.getPayload()
                 .getItems()
                 .get(0)
@@ -108,7 +111,7 @@ public class GetViewResponseTest1 {
         assertEquals(subject.getPayload().getItems().get(0).getMetadata().getArt().getSources().get(3).getUrl(),
                 "https://images.example.com/images/cover/album-art.jpg");
         assertEquals(subject.getPayload().getItems().get(0).getMetadata().getArt().getSources().get(3).getSize(),
-                "LARGE");
+                LARGE);
         assertEquals(((Number) subject.getPayload()
                 .getItems()
                 .get(0)
@@ -128,7 +131,7 @@ public class GetViewResponseTest1 {
         assertEquals(subject.getPayload().getItems().get(0).getMetadata().getArt().getSources().get(4).getUrl(),
                 "https://images.example.com/images/cover/album-art.jpg");
         assertEquals(subject.getPayload().getItems().get(0).getMetadata().getArt().getSources().get(4).getSize(),
-                "X_LARGE");
+                X_LARGE);
         assertEquals(((Number) subject.getPayload()
                 .getItems()
                 .get(0)
@@ -163,8 +166,8 @@ public class GetViewResponseTest1 {
                 .getStream()
                 .getOffsetInMilliseconds()).longValue(), 0L);
         assertEquals(subject.getPayload().getItems().get(0).getStream().getValidUntil(), "2018-05-10T19:11:35Z");
-        assertEquals(subject.getPayload().getItems().get(0).getFeedback().getType(), "PREFERENCE");
-        assertEquals(subject.getPayload().getItems().get(0).getFeedback().getValue(), "POSITIVE");
+        assertEquals(subject.getPayload().getItems().get(0).getFeedback().getType(), PREFERENCE);
+        assertEquals(subject.getPayload().getItems().get(0).getFeedback().getValue(), POSITIVE);
         assertEquals(subject.getPayload().getItems().get(1).getId(), "533718fe-b22d-4f64-8b1c-49ffdb85f619");
         assertEquals(subject.getPayload().getItems().get(1).getPlaybackInfo().getType(), DEFAULT);
         assertEquals(subject.getPayload().getItems().get(1).getMetadata().getType(), TRACK);
@@ -174,7 +177,7 @@ public class GetViewResponseTest1 {
         assertEquals(subject.getPayload().getItems().get(1).getMetadata().getArt().getSources().get(0).getUrl(),
                 "https://images.example.com/images/cover/album-art.jpg");
         assertEquals(subject.getPayload().getItems().get(1).getMetadata().getArt().getSources().get(0).getSize(),
-                "X_SMALL");
+                X_SMALL);
         assertEquals(((Number) subject.getPayload()
                 .getItems()
                 .get(1)
@@ -194,7 +197,7 @@ public class GetViewResponseTest1 {
         assertEquals(subject.getPayload().getItems().get(1).getMetadata().getArt().getSources().get(1).getUrl(),
                 "https://images.example.com/images/cover/album-art.jpg");
         assertEquals(subject.getPayload().getItems().get(1).getMetadata().getArt().getSources().get(1).getSize(),
-                "SMALL");
+                SMALL);
         assertEquals(((Number) subject.getPayload()
                 .getItems()
                 .get(1)
@@ -214,7 +217,7 @@ public class GetViewResponseTest1 {
         assertEquals(subject.getPayload().getItems().get(1).getMetadata().getArt().getSources().get(2).getUrl(),
                 "https://images.example.com/images/cover/album-art.jpg");
         assertEquals(subject.getPayload().getItems().get(1).getMetadata().getArt().getSources().get(2).getSize(),
-                "MEDIUM");
+                MEDIUM);
         assertEquals(((Number) subject.getPayload()
                 .getItems()
                 .get(1)
@@ -234,7 +237,7 @@ public class GetViewResponseTest1 {
         assertEquals(subject.getPayload().getItems().get(1).getMetadata().getArt().getSources().get(3).getUrl(),
                 "https://images.example.com/images/cover/album-art.jpg");
         assertEquals(subject.getPayload().getItems().get(1).getMetadata().getArt().getSources().get(3).getSize(),
-                "LARGE");
+                LARGE);
         assertEquals(((Number) subject.getPayload()
                 .getItems()
                 .get(1)
@@ -254,7 +257,7 @@ public class GetViewResponseTest1 {
         assertEquals(subject.getPayload().getItems().get(1).getMetadata().getArt().getSources().get(4).getUrl(),
                 "https://images.example.com/images/cover/album-art.jpg");
         assertEquals(subject.getPayload().getItems().get(1).getMetadata().getArt().getSources().get(4).getSize(),
-                "X_LARGE");
+                X_LARGE);
         assertEquals(((Number) subject.getPayload()
                 .getItems()
                 .get(1)
@@ -289,8 +292,8 @@ public class GetViewResponseTest1 {
                 .getStream()
                 .getOffsetInMilliseconds()).longValue(), 0L);
         assertEquals(subject.getPayload().getItems().get(1).getStream().getValidUntil(), "2018-05-10T19:11:35Z");
-        assertEquals(subject.getPayload().getItems().get(1).getFeedback().getType(), "PREFERENCE");
-        assertEquals(subject.getPayload().getItems().get(1).getFeedback().getValue(), "POSITIVE");
+        assertEquals(subject.getPayload().getItems().get(1).getFeedback().getType(), PREFERENCE);
+        assertEquals(subject.getPayload().getItems().get(1).getFeedback().getValue(), POSITIVE);
         assertEquals(subject.getHeader().getMessageId(), "2cae4d53-6bc1-4f8f-aa98-7dd2727ca84b");
         assertEquals(subject.getHeader().getNamespace(), "Alexa.Audio.PlayQueue");
         assertEquals(subject.getHeader().getName(), "GetView.Response");

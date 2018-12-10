@@ -10,11 +10,22 @@ import lombok.Setter;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Feedback {/**
- * The type of feedback. This only supported value is PREFERENCE.
- */
-private String type;/**
- * The value of feedback. Can be either POSITIVE or NEGATIVE.
- */
-private String value;
+public class Feedback {
+    /**
+     * The type of feedback. This only supported value is PREFERENCE.
+     */
+    private Type type;
+    /**
+     * The value of feedback. Can be either POSITIVE or NEGATIVE.
+     */
+    private Value value;
+
+    public enum Type {
+        PREFERENCE
+    }
+
+    public enum Value {
+        POSITIVE,
+        NEGATIVE
+    }
 }

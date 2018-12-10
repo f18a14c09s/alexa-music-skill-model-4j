@@ -1,16 +1,17 @@
-package f18a14c09s.integration.alexa.music.data;import static f18a14c09s.integration.alexa.data.SpeechType.PLAIN_TEXT;
+package f18a14c09s.integration.alexa.music.data;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.*;
-import java.util.function.*;
 
 import static f18a14c09s.integration.alexa.data.SpeechType.PLAIN_TEXT;
+import static f18a14c09s.integration.alexa.music.data.ArtSourceSize.*;
 import static f18a14c09s.integration.alexa.music.data.ControlName.NEXT;
 import static f18a14c09s.integration.alexa.music.data.ControlName.PREVIOUS;
 import static f18a14c09s.integration.alexa.music.data.ControlType.COMMAND;
+import static f18a14c09s.integration.alexa.music.data.Feedback.Type.PREFERENCE;
+import static f18a14c09s.integration.alexa.music.data.Feedback.Value.POSITIVE;
 import static f18a14c09s.integration.alexa.music.data.MediaMetadata.Type.TRACK;
 import static f18a14c09s.integration.alexa.music.data.PlaybackInfoType.DEFAULT;
 import static f18a14c09s.testing.TestUtil.assertInstanceOfAndCast;
@@ -27,8 +28,8 @@ public class ItemTest1 {
     void testDeserialization() throws IOException {
         ObjectMapper jsonMapper = new ObjectMapper();
         Item subject = jsonMapper.readValue(TEST_CASE, Item.class);
-        assertEquals(subject.getFeedback().getType(), "PREFERENCE");
-        assertEquals(subject.getFeedback().getValue(), "POSITIVE");
+        assertEquals(subject.getFeedback().getType(), PREFERENCE);
+        assertEquals(subject.getFeedback().getValue(), POSITIVE);
         TrackMetadata trackMetadata = assertInstanceOfAndCast(subject.getMetadata(), TrackMetadata.class);
         assertEquals(trackMetadata.getType(), TRACK);
         assertEquals(trackMetadata.getName().getSpeech().getType(), PLAIN_TEXT);
@@ -42,27 +43,27 @@ public class ItemTest1 {
         assertEquals(trackMetadata.getAlbum().getName().getDisplay(), "ARTPOP");
         assertEquals(trackMetadata.getArt().getSources().get(0).getUrl(),
                 "https://example.com/images/cover/48x48-000000-80-0-0.jpg");
-        assertEquals(trackMetadata.getArt().getSources().get(0).getSize(), "X_SMALL");
+        assertEquals(trackMetadata.getArt().getSources().get(0).getSize(), X_SMALL);
         assertEquals(((Number) trackMetadata.getArt().getSources().get(0).getWidthPixels()).longValue(), 48L);
         assertEquals(((Number) trackMetadata.getArt().getSources().get(0).getHeightPixels()).longValue(), 48L);
         assertEquals(trackMetadata.getArt().getSources().get(1).getUrl(),
                 "https://example.com/images/cover/60x60-000000-80-0-0.jpg");
-        assertEquals(trackMetadata.getArt().getSources().get(1).getSize(), "SMALL");
+        assertEquals(trackMetadata.getArt().getSources().get(1).getSize(), SMALL);
         assertEquals(((Number) trackMetadata.getArt().getSources().get(1).getWidthPixels()).longValue(), 60L);
         assertEquals(((Number) trackMetadata.getArt().getSources().get(1).getHeightPixels()).longValue(), 60L);
         assertEquals(trackMetadata.getArt().getSources().get(2).getUrl(),
                 "https://example.com/images/cover/110x110-000000-80-0-0.jpg");
-        assertEquals(trackMetadata.getArt().getSources().get(2).getSize(), "MEDIUM");
+        assertEquals(trackMetadata.getArt().getSources().get(2).getSize(), MEDIUM);
         assertEquals(((Number) trackMetadata.getArt().getSources().get(2).getWidthPixels()).longValue(), 110L);
         assertEquals(((Number) trackMetadata.getArt().getSources().get(2).getHeightPixels()).longValue(), 110L);
         assertEquals(trackMetadata.getArt().getSources().get(3).getUrl(),
                 "https://example.com/images/cover/256x256-000000-80-0-0.jpg");
-        assertEquals(trackMetadata.getArt().getSources().get(3).getSize(), "LARGE");
+        assertEquals(trackMetadata.getArt().getSources().get(3).getSize(), LARGE);
         assertEquals(((Number) trackMetadata.getArt().getSources().get(3).getWidthPixels()).longValue(), 256L);
         assertEquals(((Number) trackMetadata.getArt().getSources().get(3).getHeightPixels()).longValue(), 256L);
         assertEquals(trackMetadata.getArt().getSources().get(4).getUrl(),
                 "https://example.com/images/cover/600x600-000000-80-0-0.jpg");
-        assertEquals(trackMetadata.getArt().getSources().get(4).getSize(), "X_LARGE");
+        assertEquals(trackMetadata.getArt().getSources().get(4).getSize(), X_LARGE);
         assertEquals(((Number) trackMetadata.getArt().getSources().get(4).getWidthPixels()).longValue(), 600L);
         assertEquals(((Number) trackMetadata.getArt().getSources().get(4).getHeightPixels()).longValue(), 600L);
         assertEquals(subject.getControls().get(0).getType(), COMMAND);

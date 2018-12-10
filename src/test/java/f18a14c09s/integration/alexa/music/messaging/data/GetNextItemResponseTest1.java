@@ -6,9 +6,12 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 
 import static f18a14c09s.integration.alexa.data.SpeechType.PLAIN_TEXT;
+import static f18a14c09s.integration.alexa.music.data.ArtSourceSize.*;
 import static f18a14c09s.integration.alexa.music.data.ControlName.NEXT;
 import static f18a14c09s.integration.alexa.music.data.ControlName.PREVIOUS;
 import static f18a14c09s.integration.alexa.music.data.ControlType.COMMAND;
+import static f18a14c09s.integration.alexa.music.data.Feedback.Type.PREFERENCE;
+import static f18a14c09s.integration.alexa.music.data.Feedback.Value.POSITIVE;
 import static f18a14c09s.integration.alexa.music.data.MediaMetadata.Type.TRACK;
 import static f18a14c09s.integration.alexa.music.data.PlaybackInfoType.DEFAULT;
 import static f18a14c09s.testing.TestUtil.assertInstanceOfAndCast;
@@ -38,7 +41,7 @@ public class GetNextItemResponseTest1 {
 
         assertEquals(subject.getPayload().getItem().getMetadata().getArt().getSources().get(0).getUrl(),
                 "https://images.example.com/images/cover/48x48-000000-80-0-0.jpg");
-        assertEquals(subject.getPayload().getItem().getMetadata().getArt().getSources().get(0).getSize(), "X_SMALL");
+        assertEquals(subject.getPayload().getItem().getMetadata().getArt().getSources().get(0).getSize(), X_SMALL);
         assertEquals(((Number) subject.getPayload()
                 .getItem()
                 .getMetadata()
@@ -55,7 +58,7 @@ public class GetNextItemResponseTest1 {
                 .getHeightPixels()).longValue(), 48L);
         assertEquals(subject.getPayload().getItem().getMetadata().getArt().getSources().get(1).getUrl(),
                 "https://images.example.com/images/cover/60x60-000000-80-0-0.jpg");
-        assertEquals(subject.getPayload().getItem().getMetadata().getArt().getSources().get(1).getSize(), "SMALL");
+        assertEquals(subject.getPayload().getItem().getMetadata().getArt().getSources().get(1).getSize(), SMALL);
         assertEquals(((Number) subject.getPayload()
                 .getItem()
                 .getMetadata()
@@ -72,7 +75,7 @@ public class GetNextItemResponseTest1 {
                 .getHeightPixels()).longValue(), 60L);
         assertEquals(subject.getPayload().getItem().getMetadata().getArt().getSources().get(2).getUrl(),
                 "https://images.example.com/images/cover/110x110-000000-80-0-0.jpg");
-        assertEquals(subject.getPayload().getItem().getMetadata().getArt().getSources().get(2).getSize(), "MEDIUM");
+        assertEquals(subject.getPayload().getItem().getMetadata().getArt().getSources().get(2).getSize(), MEDIUM);
         assertEquals(((Number) subject.getPayload()
                 .getItem()
                 .getMetadata()
@@ -89,7 +92,7 @@ public class GetNextItemResponseTest1 {
                 .getHeightPixels()).longValue(), 110L);
         assertEquals(subject.getPayload().getItem().getMetadata().getArt().getSources().get(3).getUrl(),
                 "https://images.example.com/images/cover/256x256-000000-80-0-0.jpg");
-        assertEquals(subject.getPayload().getItem().getMetadata().getArt().getSources().get(3).getSize(), "LARGE");
+        assertEquals(subject.getPayload().getItem().getMetadata().getArt().getSources().get(3).getSize(), LARGE);
         assertEquals(((Number) subject.getPayload()
                 .getItem()
                 .getMetadata()
@@ -106,7 +109,7 @@ public class GetNextItemResponseTest1 {
                 .getHeightPixels()).longValue(), 256L);
         assertEquals(subject.getPayload().getItem().getMetadata().getArt().getSources().get(4).getUrl(),
                 "https://images.example.com/images/cover/600x600-000000-80-0-0.jpg");
-        assertEquals(subject.getPayload().getItem().getMetadata().getArt().getSources().get(4).getSize(), "X_LARGE");
+        assertEquals(subject.getPayload().getItem().getMetadata().getArt().getSources().get(4).getSize(), X_LARGE);
         assertEquals(((Number) subject.getPayload()
                 .getItem()
                 .getMetadata()
@@ -134,8 +137,8 @@ public class GetNextItemResponseTest1 {
                 "http://cdn.example.com/api/1/a2f318467fbf2829996adc0880e0abd03d03b1ba6ac.mp3");
         assertEquals(((Number) subject.getPayload().getItem().getStream().getOffsetInMilliseconds()).longValue(), 0L);
         assertEquals(subject.getPayload().getItem().getStream().getValidUntil(), "2018-05-10T19:11:35Z");
-        assertEquals(subject.getPayload().getItem().getFeedback().getType(), "PREFERENCE");
-        assertEquals(subject.getPayload().getItem().getFeedback().getValue(), "POSITIVE");
+        assertEquals(subject.getPayload().getItem().getFeedback().getType(), PREFERENCE);
+        assertEquals(subject.getPayload().getItem().getFeedback().getValue(), POSITIVE);
         assertEquals(subject.getHeader().getMessageId(), "2cae4d53-6bc1-4f8f-aa98-7dd2727ca84b");
         assertEquals(subject.getHeader().getNamespace(), "Alexa.Audio.PlayQueue");
         assertEquals(subject.getHeader().getName(), "GetNextItem.Response");
