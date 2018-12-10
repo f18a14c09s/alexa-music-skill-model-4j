@@ -11,6 +11,7 @@ import static f18a14c09s.integration.alexa.music.data.ControlName.PREVIOUS;
 import static f18a14c09s.integration.alexa.music.data.ControlType.COMMAND;
 import static f18a14c09s.integration.alexa.music.data.MediaMetadata.Type.TRACK;
 import static f18a14c09s.integration.alexa.music.data.PlaybackInfoType.DEFAULT;
+import static f18a14c09s.testing.TestUtil.assertInstanceOfAndCast;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -24,7 +25,7 @@ public class GetPreviousItemResponseTest1 {
     void testDeserialization() throws IOException {
         ObjectMapper jsonMapper = new ObjectMapper();
         Response obj = jsonMapper.readValue(TEST_CASE, Response.class);
-        GetPreviousItemResponse subject = (GetPreviousItemResponse) obj;
+        GetPreviousItemResponse subject = assertInstanceOfAndCast(obj, GetPreviousItemResponse.class);
 
 
         assertEquals(subject.getPayload().getItem().getId(), "e73befbe-8c27-4e4b-ab0c-9865ce8516f0");

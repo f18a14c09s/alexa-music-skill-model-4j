@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
+import static f18a14c09s.testing.TestUtil.assertInstanceOfAndCast;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -19,7 +20,7 @@ public class SetShuffleRequestTest1 {
     void testDeserialization() throws IOException {
         ObjectMapper jsonMapper = new ObjectMapper();
         Request obj = jsonMapper.readValue(TEST_CASE, Request.class);
-        SetShuffleRequest subject = (SetShuffleRequest) obj;
+        SetShuffleRequest subject = assertInstanceOfAndCast(obj, SetShuffleRequest.class);
 
 
         assertEquals(subject.getPayload().getRequestContext().getUser().getId(),

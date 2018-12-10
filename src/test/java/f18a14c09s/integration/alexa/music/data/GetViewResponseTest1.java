@@ -25,7 +25,7 @@ public class GetViewResponseTest1 {
     void testDeserialization() throws IOException {
         ObjectMapper jsonMapper = new ObjectMapper();
         Response obj = jsonMapper.readValue(TEST_CASE, Response.class);
-        GetViewResponse subject = (GetViewResponse) obj;
+        GetViewResponse subject = assertInstanceOfAndCast(obj, GetViewResponse.class);
         ToggleQueueControl toggleQueueControl =
                 assertInstanceOfAndCast(subject.getPayload().getQueueControls().get(0), ToggleQueueControl.class);
         assertEquals(toggleQueueControl.getType(), TOGGLE);
@@ -41,8 +41,7 @@ public class GetViewResponseTest1 {
         assertEquals(subject.getPayload().getItems().get(0).getId(), "e73befbe-8c27-4e4b-ab0c-9865ce8516f0");
         assertEquals(subject.getPayload().getItems().get(0).getPlaybackInfo().getType(), DEFAULT);
         assertEquals(subject.getPayload().getItems().get(0).getMetadata().getType(), TRACK);
-        assertEquals(subject.getPayload().getItems().get(0).getMetadata().getName().getSpeech().getType(),
-                PLAIN_TEXT);
+        assertEquals(subject.getPayload().getItems().get(0).getMetadata().getName().getSpeech().getType(), PLAIN_TEXT);
         assertEquals(subject.getPayload().getItems().get(0).getMetadata().getName().getSpeech().getText(), "alive");
         assertEquals(subject.getPayload().getItems().get(0).getMetadata().getName().getDisplay(), "Alive");
         assertEquals(subject.getPayload().getItems().get(0).getMetadata().getArt().getSources().get(0).getUrl(),
@@ -168,8 +167,7 @@ public class GetViewResponseTest1 {
         assertEquals(subject.getPayload().getItems().get(1).getId(), "533718fe-b22d-4f64-8b1c-49ffdb85f619");
         assertEquals(subject.getPayload().getItems().get(1).getPlaybackInfo().getType(), DEFAULT);
         assertEquals(subject.getPayload().getItems().get(1).getMetadata().getType(), TRACK);
-        assertEquals(subject.getPayload().getItems().get(1).getMetadata().getName().getSpeech().getType(),
-                PLAIN_TEXT);
+        assertEquals(subject.getPayload().getItems().get(1).getMetadata().getName().getSpeech().getType(), PLAIN_TEXT);
         assertEquals(subject.getPayload().getItems().get(1).getMetadata().getName().getSpeech().getText(), "porch");
         assertEquals(subject.getPayload().getItems().get(1).getMetadata().getName().getDisplay(), "Porch");
         assertEquals(subject.getPayload().getItems().get(1).getMetadata().getArt().getSources().get(0).getUrl(),

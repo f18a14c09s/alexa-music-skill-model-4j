@@ -26,7 +26,7 @@ public class InitiateResponseTest1 {
     void testDeserialization() throws IOException {
         ObjectMapper jsonMapper = new ObjectMapper();
         Response obj = jsonMapper.readValue(TEST_CASE, Response.class);
-        InitiateResponse subject = (InitiateResponse) obj;
+        InitiateResponse subject = assertInstanceOfAndCast(obj, InitiateResponse.class);
         AudioPlayerQueue audioPlayerQueue =
                 assertInstanceOfAndCast(subject.getPayload().getPlaybackMethod(), AudioPlayerQueue.class);
         assertEquals(audioPlayerQueue.getType(), ALEXA_AUDIO_PLAYER_QUEUE);

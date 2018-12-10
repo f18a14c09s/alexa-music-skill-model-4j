@@ -8,7 +8,6 @@ import java.io.IOException;
 import static f18a14c09s.integration.alexa.data.ErrorResponseType.CONTENT_NOT_FOUND;
 import static f18a14c09s.testing.TestUtil.assertInstanceOfAndCast;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * In the following example, the skill cannot find playable content to satisfy the user's request so it returns an error response.

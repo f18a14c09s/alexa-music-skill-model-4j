@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
+import static f18a14c09s.testing.TestUtil.assertInstanceOfAndCast;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
@@ -18,7 +19,7 @@ public class GetViewRequestTest1 {
     void testDeserialization() throws IOException {
         ObjectMapper jsonMapper = new ObjectMapper();
         Request obj = jsonMapper.readValue(TEST_CASE, Request.class);
-        GetViewRequest subject = (GetViewRequest) obj;
+        GetViewRequest subject = assertInstanceOfAndCast(obj, GetViewRequest.class);
 
 
         assertEquals(subject.getPayload().getRequestContext().getUser().getId(),

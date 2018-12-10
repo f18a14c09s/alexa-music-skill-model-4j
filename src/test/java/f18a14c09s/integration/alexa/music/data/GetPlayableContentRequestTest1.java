@@ -22,7 +22,7 @@ public class GetPlayableContentRequestTest1 {
     void testDeserialization() throws IOException {
         ObjectMapper jsonMapper = new ObjectMapper();
         Request obj = jsonMapper.readValue(TEST_CASE, Request.class);
-        GetPlayableContentRequest subject = (GetPlayableContentRequest) obj;
+        GetPlayableContentRequest subject = assertInstanceOfAndCast(obj, GetPlayableContentRequest.class);
 
 
         assertEquals(subject.getPayload().getRequestContext().getUser().getId(),
