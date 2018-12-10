@@ -11,11 +11,13 @@ import lombok.Setter;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ContentActions {/**
- * Determines whether the content is playable. Defaults to true.
- */
-private Boolean playable;/**
- * Determines whether the content is browsable.
- */
-private Boolean browseable;
+public class ContentActions {
+    /**
+     * Determines whether the content is playable. Defaults to true.
+     */
+    private Boolean playable;
+    /**
+     * Determines whether the content is browsable.
+     */
+    private Boolean browseable;
 }
