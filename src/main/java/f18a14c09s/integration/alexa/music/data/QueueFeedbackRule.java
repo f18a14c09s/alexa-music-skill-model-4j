@@ -10,11 +10,13 @@ import lombok.Setter;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class QueueFeedbackRule {/**
- * The type of feedback. The only supported value is PREFERENCE.
- */
-private String type;/**
- * Whether feedback should be enabled. If false, Alexa will render error prompts (VUI) or show error messages (GUI) when the user tries to provide feedback. Note that this flag can be overridden on an item-by-item basis.
- */
-private Boolean enabled;
+public class QueueFeedbackRule {
+    /**
+     * The type of feedback. The only supported value is PREFERENCE.
+     */
+    private String type;
+    /**
+     * Whether feedback should be enabled. If false, Alexa will render error prompts (VUI) or show error messages (GUI) when the user tries to provide feedback. Note that this flag can be overridden on an item-by-item basis.
+     */
+    private Boolean enabled;
 }

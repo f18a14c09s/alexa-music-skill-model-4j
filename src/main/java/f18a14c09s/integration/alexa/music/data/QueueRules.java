@@ -10,8 +10,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class QueueRules {/**
- * Used to identify whether feedback of a specific type is allowed for a queue. If absent, Alexa assumes that no type of feedback is supported for this queue. See QueueFeedbackRule for details. Note that enablement of feedback can be overridden at the item level.
- */
-private QueueFeedbackRule feedback;
+public class QueueRules {
+    /**
+     * Used to identify whether feedback of a specific type is allowed for a queue. If absent, Alexa assumes that no type of feedback is supported for this queue. See QueueFeedbackRule for details. Note that enablement of feedback can be overridden at the item level.
+     */
+    private QueueFeedbackRule feedback;
 }

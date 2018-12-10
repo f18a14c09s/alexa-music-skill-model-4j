@@ -24,7 +24,4 @@ public class MediaReferenceTest1 {
         assertEquals(subject.getValue().getQueueId(), "76f325d5-a648-4e8f-87ad-6e53cf99e4c7");
         assertEquals(subject.getValue().getContentId(), "1021012f-12bb-4938-9723-067a4338b6d0");
     }
-
-    public static final class ItemMediaReference extends MediaReference<ItemReference> {
-    }
 }

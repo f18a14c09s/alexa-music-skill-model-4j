@@ -1,19 +1,20 @@
 package f18a14c09s.integration.alexa.music.data;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import f18a14c09s.integration.alexa.music.metadata.TrackMetadata;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
 import static f18a14c09s.integration.alexa.data.SpeechType.PLAIN_TEXT;
+import static f18a14c09s.integration.alexa.music.control.data.ControlName.NEXT;
+import static f18a14c09s.integration.alexa.music.control.data.ControlName.PREVIOUS;
+import static f18a14c09s.integration.alexa.music.control.data.ControlType.COMMAND;
 import static f18a14c09s.integration.alexa.music.data.ArtSourceSize.*;
-import static f18a14c09s.integration.alexa.music.data.ControlName.NEXT;
-import static f18a14c09s.integration.alexa.music.data.ControlName.PREVIOUS;
-import static f18a14c09s.integration.alexa.music.data.ControlType.COMMAND;
 import static f18a14c09s.integration.alexa.music.data.Feedback.Type.PREFERENCE;
 import static f18a14c09s.integration.alexa.music.data.Feedback.Value.POSITIVE;
-import static f18a14c09s.integration.alexa.music.data.MediaMetadata.Type.TRACK;
-import static f18a14c09s.integration.alexa.music.data.PlaybackInfoType.DEFAULT;
+import static f18a14c09s.integration.alexa.music.metadata.MetadataType.TRACK;
+import static f18a14c09s.integration.alexa.music.playback.data.PlaybackInfoType.DEFAULT;
 import static f18a14c09s.testing.TestUtil.assertInstanceOfAndCast;
 import static org.junit.jupiter.api.Assertions.*;
 

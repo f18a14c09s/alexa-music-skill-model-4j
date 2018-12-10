@@ -10,8 +10,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ItemRules {/**
- * Determine whether the user is allowed to provide feedback for a given item. Defaults to the flag specified in the QueueFeedbackRule.
- */
-private Boolean feedbackEnabled;
+public class ItemRules {
+    /**
+     * Determine whether the user is allowed to provide feedback for a given item. Defaults to the flag specified in the QueueFeedbackRule.
+     */
+    private Boolean feedbackEnabled;
 }

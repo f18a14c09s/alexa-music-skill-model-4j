@@ -1,13 +1,14 @@
 package f18a14c09s.integration.alexa.music.data;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import f18a14c09s.integration.alexa.music.metadata.AdMetadata;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
 import static f18a14c09s.integration.alexa.data.SpeechType.PLAIN_TEXT;
-import static f18a14c09s.integration.alexa.music.data.AdMetadata.Type.AD;
 import static f18a14c09s.integration.alexa.music.data.ArtSourceSize.*;
+import static f18a14c09s.integration.alexa.music.metadata.MetadataType.AD;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**

@@ -1,6 +1,9 @@
 package f18a14c09s.integration.alexa.music.data;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import f18a14c09s.integration.alexa.music.control.data.ItemControl;
+import f18a14c09s.integration.alexa.music.metadata.BaseMetadata;
+import f18a14c09s.integration.alexa.music.playback.data.PlaybackInfo;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,7 +27,7 @@ public class Item {
     /**
      * Metadata for the item. For playbackInfo types DEFAULT and SAMPLE, the value will be an instance of MediaMetadata, where the metadata type field can either be TRACK or STATION. See the MediaMetadata object for details. For playbackInfo type AD, the value will be an instance of AdMetadata. See the AdMetadata object for details.
      */
-    private BaseMetadata<?> metadata;
+    private BaseMetadata metadata;
     /**
      * Duration of the item in milliseconds. If the item is a live stream, do not return this field.
      */

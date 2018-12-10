@@ -10,11 +10,13 @@ import lombok.Setter;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class RequestContext {/**
- * Contains user-specific information from the request. See the User object for more information.
- */
-private User user;/**
- * Object that describes a request's location. See the Location object for more information.
- */
-private Location location;
+public class RequestContext {
+    /**
+     * Contains user-specific information from the request. See the User object for more information.
+     */
+    private User user;
+    /**
+     * Object that describes a request's location. See the Location object for more information.
+     */
+    private Location location;
 }

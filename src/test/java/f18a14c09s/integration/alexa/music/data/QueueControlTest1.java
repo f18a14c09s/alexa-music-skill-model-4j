@@ -1,12 +1,13 @@
 package f18a14c09s.integration.alexa.music.data;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import f18a14c09s.integration.alexa.music.control.data.QueueControl;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-import static f18a14c09s.integration.alexa.music.data.ControlName.SEEK_POSITION;
-import static f18a14c09s.integration.alexa.music.data.ControlType.ADJUST;
+import static f18a14c09s.integration.alexa.music.control.data.ControlName.SEEK_POSITION;
+import static f18a14c09s.integration.alexa.music.control.data.ControlType.ADJUST;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

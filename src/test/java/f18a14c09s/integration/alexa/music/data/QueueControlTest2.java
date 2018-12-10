@@ -1,12 +1,14 @@
 package f18a14c09s.integration.alexa.music.data;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import f18a14c09s.integration.alexa.music.control.data.QueueControl;
+import f18a14c09s.integration.alexa.music.control.data.ToggleQueueControl;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-import static f18a14c09s.integration.alexa.music.data.ControlName.LOOP;
-import static f18a14c09s.integration.alexa.music.data.ControlType.TOGGLE;
+import static f18a14c09s.integration.alexa.music.control.data.ControlName.LOOP;
+import static f18a14c09s.integration.alexa.music.control.data.ControlType.TOGGLE;
 import static f18a14c09s.testing.TestUtil.assertInstanceOfAndCast;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;

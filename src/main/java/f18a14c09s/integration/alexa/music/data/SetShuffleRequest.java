@@ -2,7 +2,7 @@ package f18a14c09s.integration.alexa.music.data;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import f18a14c09s.integration.alexa.music.messaging.data.Request;
+import f18a14c09s.integration.alexa.music.messagetypes.Request;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,7 +26,7 @@ public class SetShuffleRequest extends Request<SetShuffleRequest.Payload> {
         /**
          * An object identifying the currently playing item. See the ItemReference object for more information.
          */
-        private MediaReference<ItemReference> currentItemReference;
+        private ItemMediaReference currentItemReference;
         /**
          * A flag that indicates whether to enable or disable shuffle mode.
          */

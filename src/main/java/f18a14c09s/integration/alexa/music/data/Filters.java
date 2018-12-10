@@ -10,8 +10,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Filters {/**
- * Determines whether results with explicit language are allowed.
- */
-private Boolean explicitLanguageAllowed;
+public class Filters {
+    /**
+     * Determines whether results with explicit language are allowed.
+     */
+    private Boolean explicitLanguageAllowed;
 }
