@@ -8,14 +8,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", defaultImpl = ResolvedSelectionCriteria.BasicEntityAttribute.class, visible = true)
-@JsonSubTypes({@JsonSubTypes.Type(value = AdjustControl.class, name = ControlTypeName.ADJUST),
-        @JsonSubTypes.Type(value = CommandControl.class, name = ControlTypeName.COMMAND),
-        @JsonSubTypes.Type(value = ToggleControl.class, name = ControlTypeName.TOGGLE)})
-public class QueueControl extends BaseControl {
-    public QueueControl() {
-        this(null);
-    }
-
+@JsonSubTypes({@JsonSubTypes.Type(value = AdjustQueueControl.class, name = ControlTypeName.ADJUST),
+        @JsonSubTypes.Type(value = CommandQueueControl.class, name = ControlTypeName.COMMAND),
+        @JsonSubTypes.Type(value = ToggleQueueControl.class, name = ControlTypeName.TOGGLE)})
+public abstract class QueueControl extends BaseControl {
     protected QueueControl(ControlType type) {
         super(type);
     }

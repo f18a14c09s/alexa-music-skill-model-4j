@@ -1,4 +1,5 @@
 package f18a14c09s.integration.alexa.music.data;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Getter;
@@ -13,18 +14,21 @@ import lombok.Setter;
  */
 @JsonDeserialize
 public class SetShuffleRequest extends Request<SetShuffleRequest.Payload> {
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-public static final class Payload {/**
- * An object containing context information about the request. See the RequestContext object for more information.
- */
-private RequestContext requestContext;/**
- * An object identifying the currently playing item. See the ItemReference object for more information.
- */
-private ItemReference currentItemReference;/**
- * A flag that indicates whether to enable or disable shuffle mode.
- */
-private Boolean enable;
-}
+    @Getter
+    @Setter
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public static final class Payload {
+        /**
+         * An object containing context information about the request. See the RequestContext object for more information.
+         */
+        private RequestContext requestContext;
+        /**
+         * An object identifying the currently playing item. See the ItemReference object for more information.
+         */
+        private MediaReference<ItemReference> currentItemReference;
+        /**
+         * A flag that indicates whether to enable or disable shuffle mode.
+         */
+        private Boolean enable;
+    }
 }

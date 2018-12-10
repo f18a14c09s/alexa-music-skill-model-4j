@@ -5,10 +5,10 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ToggleControl extends QueueControl {
+public class ToggleQueueControl extends QueueControl {
     private Boolean selected;
 
-    protected ToggleControl() {
+    public ToggleQueueControl() {
         super(ControlType.TOGGLE);
     }
 }

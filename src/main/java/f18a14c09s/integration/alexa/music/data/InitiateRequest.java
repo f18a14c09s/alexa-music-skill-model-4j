@@ -30,7 +30,7 @@ public class InitiateRequest extends Request<InitiateRequest.Payload> {
         /**
          * An identifier for the item that is currently playing (active) on the target endpoint, if any. See the MediaReference object for more information. Note that this property is absent when nothing is playing. Your skill should use this property to enforce concurrency limits. More specifically, you can use it to determine whether the playback session will start on an endpoint where no stream is playing, or it will replace an existing stream on an endpoint.
          */
-        private MediaReference currentItemReference;
+        private MediaReference<ItemReference> currentItemReference;
         /**
          * An object describing the playback mode requirements. See the PlaybackModesCriteria object for more information. If the user did not mention anything about a looped or shuffled queue, this attribute defaults to false for all supported playback modes.
          */

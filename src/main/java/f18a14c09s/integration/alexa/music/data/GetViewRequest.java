@@ -1,4 +1,5 @@
 package f18a14c09s.integration.alexa.music.data;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Getter;
@@ -9,15 +10,18 @@ import lombok.Setter;
  */
 @JsonDeserialize
 public class GetViewRequest extends Request<GetViewRequest.Payload> {
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-public static final class Payload {/**
- * An object containing context information about the request. See the RequestContext object for more information.
- */
-private RequestContext requestContext;/**
- * An object identifying the currently playing item. The skill should use the identifiers here to find the play queue for which Alexa is requesting items. See the ItemReference object for more information.
- */
-private ItemReference currentItemReference;
-}
+    @Getter
+    @Setter
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public static final class Payload {
+        /**
+         * An object containing context information about the request. See the RequestContext object for more information.
+         */
+        private RequestContext requestContext;
+        /**
+         * An object identifying the currently playing item. The skill should use the identifiers here to find the play queue for which Alexa is requesting items. See the ItemReference object for more information.
+         * TODO: The structure of this property implies ItemReference as the data type, but the example JSON implies MediaReference&lt;ItemReference&gt; as the data type.  Verify which it should be.
+         */
+        private MediaReference<ItemReference> currentItemReference;
+    }
 }

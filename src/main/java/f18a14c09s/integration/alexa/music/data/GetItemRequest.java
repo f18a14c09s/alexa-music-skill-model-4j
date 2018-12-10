@@ -1,4 +1,5 @@
 package f18a14c09s.integration.alexa.music.data;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Getter;
@@ -11,15 +12,17 @@ import lombok.Setter;
  */
 @JsonDeserialize
 public class GetItemRequest extends Request<GetItemRequest.Payload> {
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-public static final class Payload {/**
- * An object containing context information about the request. See the RequestContext object for more information.
- */
-private RequestContext requestContext;/**
- * An object identifying the item to get. See the MediaReference object for more information.
- */
-private MediaReference targetItemReference;
-}
+    @Getter
+    @Setter
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public static final class Payload {
+        /**
+         * An object containing context information about the request. See the RequestContext object for more information.
+         */
+        private RequestContext requestContext;
+        /**
+         * An object identifying the item to get. See the MediaReference object for more information.
+         */
+        private MediaReference targetItemReference;
+    }
 }

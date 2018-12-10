@@ -21,7 +21,7 @@ public class Item {
     /**
      * Describes which business rules Alexa should run when playing or displaying this item. See the PlaybackInfo object for details.
      */
-    private String playbackInfo;
+    private PlaybackInfo playbackInfo;
     /**
      * Metadata for the item. For playbackInfo types DEFAULT and SAMPLE, the value will be an instance of MediaMetadata, where the metadata type field can either be TRACK or STATION. See the MediaMetadata object for details. For playbackInfo type AD, the value will be an instance of AdMetadata. See the AdMetadata object for details.
      */
