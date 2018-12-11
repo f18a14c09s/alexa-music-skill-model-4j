@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-import static f18a14c09s.integration.alexa.music.data.EntityType.*;
+import static f18a14c09s.integration.alexa.music.entities.EntityType.*;
 import static f18a14c09s.testing.TestUtil.assertInstanceOfAndCast;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

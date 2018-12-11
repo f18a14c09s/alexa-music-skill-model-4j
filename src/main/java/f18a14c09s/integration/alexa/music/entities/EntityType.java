@@ -1,10 +1,10 @@
-package f18a14c09s.integration.alexa.music.data;
+package f18a14c09s.integration.alexa.music.entities;
 
 import lombok.Getter;
 
 import java.util.*;
 
-import static f18a14c09s.integration.alexa.music.catalog.data.CatalogTypeName.*;
+import static f18a14c09s.integration.alexa.music.entities.CatalogTypeName.*;
 
 @Getter
 public enum EntityType {

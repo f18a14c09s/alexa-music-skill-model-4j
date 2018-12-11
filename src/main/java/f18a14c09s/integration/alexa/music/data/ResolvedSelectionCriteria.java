@@ -2,6 +2,8 @@ package f18a14c09s.integration.alexa.music.data;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import f18a14c09s.integration.alexa.music.entities.EntityType;
+import f18a14c09s.integration.alexa.music.entities.EntityTypeName;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -1,4 +1,4 @@
-package f18a14c09s.integration.alexa.music.catalog.data;
+package f18a14c09s.integration.alexa.music.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
@@ -9,8 +9,12 @@ import java.util.*;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Playlist extends BaseEntity {
+public class Track extends BaseEntity {
     private ArrayList<EntityName> names;
     private Popularity popularity;
     private ArrayList<AlternateNames> alternateNames;
+    private ArrayList<String> languageOfContent;
+    private String releaseType;
+    private ArrayList<ArtistReference> artists;
+    private ArrayList<AlbumReference> albums;
 }

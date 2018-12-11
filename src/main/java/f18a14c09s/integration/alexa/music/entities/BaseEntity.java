@@ -1,4 +1,4 @@
-package f18a14c09s.integration.alexa.music.catalog.data;
+package f18a14c09s.integration.alexa.music.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
