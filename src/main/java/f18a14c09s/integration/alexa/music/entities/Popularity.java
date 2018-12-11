@@ -7,11 +7,20 @@ import lombok.Setter;
 
 import java.util.*;
 
-@Getter
-@Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Popularity {
     @JsonProperty("default")
     private Long myDefault;
+
+    @Getter
+    @Setter
     private ArrayList<PopularityOverride> overrides;
+
+    public Long getDefault() {
+        return myDefault;
+    }
+
+    public void setDefault(Long myDefault) {
+        this.myDefault = myDefault;
+    }
 }

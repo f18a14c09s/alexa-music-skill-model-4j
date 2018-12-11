@@ -13,11 +13,11 @@ import java.util.*;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public abstract class AbstractCatalog<E extends BaseEntity> {
     private String type;
-    private String version;
+    private Double version;
     private ArrayList<Locale> locales;
     private ArrayList<E> entities;
 
-    protected AbstractCatalog(String type, String version, Locale... locales) {
+    protected AbstractCatalog(String type, Double version, Locale... locales) {
         this.type = type;
         this.version = version;
         this.locales =
