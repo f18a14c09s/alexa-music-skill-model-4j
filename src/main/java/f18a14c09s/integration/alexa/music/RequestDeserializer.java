@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import f18a14c09s.integration.alexa.UnknownMessageTypeException;
 import f18a14c09s.integration.alexa.music.data.RequestType;
 import f18a14c09s.integration.alexa.music.data.SetLoopRequest;
 import f18a14c09s.integration.alexa.music.data.SetShuffleRequest;
@@ -41,6 +42,10 @@ public class RequestDeserializer extends StdDeserializer<Request> {
         Optional<String> name = header.map(hdr -> hdr.get("name")).map(JsonNode::asText);
         Optional<Class<? extends Request<?>>> clazz =
                 namespace.flatMap(ns -> name.map(n -> new RequestType(ns, n))).map(types::get);
-        return p.getCodec().treeToValue(object, clazz.orElse(RequestMap.class));
+        return p.getCodec()
+                .treeToValue(object,
+                        clazz.orElseThrow(() -> new UnknownMessageTypeException(Request.class,
+                                namespace.orElse(null),
+                                name.orElse(null))));
     }
 }
