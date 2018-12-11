@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class CatalogClassGenerator {
-    public static void main(String... arhs) throws IOException {
+    public static void main(String... args) throws IOException {
         String[] array =
                 {"BroadcastChannel", "Station", "Genre", "Genre", "MusicAlbum", "Album", "MusicGroup", "Artist",
                         "MusicPlaylist", "Playlist", "MusicRecording", "Track"};
@@ -13,7 +13,7 @@ public class CatalogClassGenerator {
             String classSimpleName = String.format("%sCatalog", array[i]);
             String entityClassName = array[i + 1];
             String packageName = AbstractCatalog.class.getPackage().getName();
-            try (FileWriter fileWriter = new FileWriter(new File(new File(new File(arhs[0]),
+            try (FileWriter fileWriter = new FileWriter(new File(new File(new File(args[0]),
                     packageName.replace(".", File.separator)), String.format("%s.java", classSimpleName)))) {
                 fileWriter.write(String.format("package %s;" + "%nimport lombok.*;" +
                                 "%nimport com.fasterxml.jackson.annotation.JsonIgnoreProperties;" +

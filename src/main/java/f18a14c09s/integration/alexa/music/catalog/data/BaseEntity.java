@@ -1,5 +1,6 @@
 package f18a14c09s.integration.alexa.music.catalog.data;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import f18a14c09s.integration.alexa.data.Locale;
 import lombok.Getter;
@@ -13,6 +14,7 @@ import java.util.*;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BaseEntity {
     private String id;
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSZ", timezone = "UTC")
     private ZonedDateTime lastUpdatedTime;
     private Boolean deleted;
     private ArrayList<Locale> locales;
