@@ -4,14 +4,16 @@ import lombok.Getter;
 
 import java.util.*;
 
+import static f18a14c09s.integration.alexa.music.catalog.data.CatalogTypeName.*;
+
 @Getter
 public enum EntityType {
-    TRACK(EntityTypeName.TRACK, "AMAZON.MusicRecording"),
-    ALBUM(EntityTypeName.ALBUM, "AMAZON.MusicAlbum"),
-    ARTIST(EntityTypeName.ARTIST, "AMAZON.MusicGroup"),
-    PLAYLIST(EntityTypeName.PLAYLIST, "AMAZON.MusicPlaylist"),
-    GENRE(EntityTypeName.GENRE, "AMAZON.Genre"),
-    STATION(EntityTypeName.STATION, "AMAZON.BroadcastChannel"),
+    TRACK(EntityTypeName.TRACK, AMAZON_MUSIC_RECORDING),
+    ALBUM(EntityTypeName.ALBUM, AMAZON_MUSIC_ALBUM),
+    ARTIST(EntityTypeName.ARTIST, AMAZON_MUSIC_GROUP),
+    PLAYLIST(EntityTypeName.PLAYLIST, AMAZON_MUSIC_PLAYLIST),
+    GENRE(EntityTypeName.GENRE, AMAZON_GENRE),
+    STATION(EntityTypeName.STATION, AMAZON_BROADCAST_CHANNEL),
     MEDIA_TYPE(EntityTypeName.MEDIA_TYPE),
     SORT_TYPE(EntityTypeName.SORT_TYPE);
     private final String catalogType;
