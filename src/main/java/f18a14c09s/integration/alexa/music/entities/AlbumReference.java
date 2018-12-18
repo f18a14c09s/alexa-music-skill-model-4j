@@ -4,14 +4,28 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 import java.util.*;
 
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AlbumReference {
-    private String id;
-    private ArrayList<EntityName> names;
-    private ArrayList<AlternateNames> alternateNames;
+@Entity
+@Table(name = RelationalTableName.ALBUM)
+@DiscriminatorValue(EntityTypeName.ALBUM)
+public class AlbumReference extends BaseEntityReference {
+    @Transient
+    private List<EntityName> names;
+    @Transient
+    private List<AlternateNames> alternateNames;
+    @Transient
     private String releaseType;
+
+    @Override
+    public String toString() {
+        return String.format("%s %s", getClass().getSimpleName(), getId());
+    }
 }

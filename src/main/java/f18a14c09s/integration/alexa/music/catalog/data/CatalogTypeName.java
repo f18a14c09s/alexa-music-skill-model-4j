@@ -1,4 +1,4 @@
-package f18a14c09s.integration.alexa.music.entities;
+package f18a14c09s.integration.alexa.music.catalog.data;
 
 public class CatalogTypeName {
     public static final String AMAZON_BROADCAST_CHANNEL = "AMAZON.BroadcastChannel";

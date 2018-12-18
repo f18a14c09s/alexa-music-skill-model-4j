@@ -4,13 +4,22 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.*;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Entity
+@Table(name = RelationalTableName.ARTIST)
+@DiscriminatorValue(EntityTypeName.ARTIST)
 public class Artist extends BaseEntity {
-    private ArrayList<EntityName> names;
-    private Popularity popularity;
-    private ArrayList<AlternateNames> alternateNames;
+    public ArtistReference toReference() {
+        ArtistReference retval = new ArtistReference();
+        retval.setAlternateNames(getAlternateNames());
+        retval.setId(getId());
+        retval.setNames(getNames());
+        return retval;
+    }
 }

@@ -4,7 +4,7 @@ import lombok.Getter;
 
 import java.util.*;
 
-import static f18a14c09s.integration.alexa.music.entities.CatalogTypeName.*;
+import static f18a14c09s.integration.alexa.music.catalog.data.CatalogTypeName.*;
 
 @Getter
 public enum EntityType {

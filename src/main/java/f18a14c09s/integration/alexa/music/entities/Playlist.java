@@ -4,13 +4,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.*;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Table;
 
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Table(name = RelationalTableName.PLAYLIST)
+@DiscriminatorValue(EntityTypeName.PLAYLIST)
 public class Playlist extends BaseEntity {
-    private ArrayList<EntityName> names;
-    private Popularity popularity;
-    private ArrayList<AlternateNames> alternateNames;
 }
