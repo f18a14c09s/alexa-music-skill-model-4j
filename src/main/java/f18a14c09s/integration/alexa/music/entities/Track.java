@@ -1,6 +1,8 @@
 package f18a14c09s.integration.alexa.music.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import f18a14c09s.integration.alexa.music.data.Art;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -34,4 +36,13 @@ public class Track extends BaseEntity {
             @JoinColumn(name = "song_id", referencedColumnName = "id")}, inverseJoinColumns = {
             @JoinColumn(name = "album_id", referencedColumnName = "id")})
     private List<AlbumReference> albums;
+
+    @JsonIgnore
+    @Column(length = 4000)
+    private String url;
+
+    @JsonIgnore
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(name = "art_id", referencedColumnName = "id")
+    private Art art;
 }

@@ -26,4 +26,10 @@ public abstract class BaseMetadata {
     protected BaseMetadata(MetadataType type) {
         this.type = type;
     }
+
+    protected BaseMetadata(MetadataType type, MetadataNameProperty name, Art art) {
+        this.type = type;
+        this.name = name;
+        this.art = art;
+    }
 }

@@ -20,5 +20,28 @@ public enum ArtSourceSize {
     /**
      * recommended for 600 x 600 pixels
      */
-    X_LARGE
+    X_LARGE;
+
+    /**
+     * Correlates the specified dimensions with the recommended ArtSourceSize.
+     *
+     * @param width
+     * @param height
+     * @return null if either dimension is null; the recommended ArtSourceSize otherwise.
+     */
+    public static ArtSourceSize valueOf(Long width, Long height) {
+        if (width == null || height == null) {
+            return null;
+        } else if (width <= 48 && height <= 48) {
+            return X_SMALL;
+        } else if (width <= 60 && height <= 60) {
+            return SMALL;
+        } else if (width <= 110 && height <= 110) {
+            return MEDIUM;
+        } else if (width <= 256 && height <= 256) {
+            return LARGE;
+        } else {
+            return X_LARGE;
+        }
+    }
 }
