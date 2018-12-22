@@ -27,21 +27,24 @@ public enum ArtSourceSize {
      *
      * @param width
      * @param height
-     * @return null if either dimension is null; the recommended ArtSourceSize otherwise.
+     * @retval = null if either dimension is null; the recommended ArtSourceSize otherwise.
      */
     public static ArtSourceSize valueOf(Long width, Long height) {
+        ArtSourceSize retval;
         if (width == null || height == null) {
-            return null;
+            retval = null;
         } else if (width <= 48 && height <= 48) {
-            return X_SMALL;
+            retval = X_SMALL;
         } else if (width <= 60 && height <= 60) {
-            return SMALL;
+            retval = SMALL;
         } else if (width <= 110 && height <= 110) {
-            return MEDIUM;
+            retval = MEDIUM;
         } else if (width <= 256 && height <= 256) {
-            return LARGE;
+            retval = LARGE;
         } else {
-            return X_LARGE;
+            retval = X_LARGE;
         }
+//        System.out.printf("%s is the recommended art source size for %s x %s.%n", retval, width, height);
+        return retval;
     }
 }
