@@ -1,6 +1,7 @@
 package f18a14c09s.integration.alexa.music.messagetypes;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import f18a14c09s.integration.util.DateUtil;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -135,7 +136,8 @@ public class GetItemResponseTest1 {
         assertEquals(subject.getPayload().getItem().getStream().getUri(),
                 "https://cdn.example.com/api/1/streaming-file.mp3");
         assertEquals(((Number) subject.getPayload().getItem().getStream().getOffsetInMilliseconds()).longValue(), 0L);
-        assertEquals(subject.getPayload().getItem().getStream().getValidUntil(), "2018-05-10T19:11:35Z");
+        assertEquals(DateUtil.formatAsIso8601UtcSeconds(subject.getPayload().getItem().getStream().getValidUntil()),
+                "2018-05-10T19:11:35Z");
         assertEquals(subject.getPayload().getItem().getFeedback().getType(), PREFERENCE);
         assertEquals(subject.getPayload().getItem().getFeedback().getValue(), POSITIVE);
         assertEquals(subject.getHeader().getMessageId(), "2cae4d53-6bc1-4f8f-aa98-7dd2727ca84b");

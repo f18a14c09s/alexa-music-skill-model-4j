@@ -17,12 +17,19 @@ public class InitiateResponse extends Response<InitiateResponse.Payload> {
     }
 
     public InitiateResponse(String messageId) {
+        this(messageId, null);
+    }
+
+    public InitiateResponse(String messageId, PlaybackMethod playbackMethod) {
         MessageHeader header = new MessageHeader();
-        header.setNamespace("Alexa.Media.Playback");
-        header.setName("Initiate.Response");
+        header.setNamespace(AlexaMediaPlayback.NAMESPACE_NAME);
+        header.setName(AlexaMediaPlayback.INITIATE_RESPONSE.getMyName());
         header.setPayloadVersion("1.0");
         header.setMessageId(messageId);
         setHeader(header);
+        Payload payload = new Payload();
+        payload.setPlaybackMethod(playbackMethod);
+        setPayload(payload);
     }
 
     @Getter

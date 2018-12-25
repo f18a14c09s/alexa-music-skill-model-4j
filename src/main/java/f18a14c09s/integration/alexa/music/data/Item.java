@@ -35,7 +35,7 @@ public class Item {
     /**
      * List of ItemControl objects used by Alexa to determine which controls should be clickable in the Alexa app.
      */
-    private ArrayList<ItemControl> controls;
+    private List<ItemControl> controls;
     /**
      * Object which contains rules for the item. See ItemRules for details.
      */

@@ -19,4 +19,23 @@ public class PlaybackInfo {
      * AD - describes an item whose stream is an advertisement
      */
     private PlaybackInfoType type;
+
+    public PlaybackInfo() {
+    }
+
+    public PlaybackInfo(PlaybackInfoType type) {
+        this.type = type;
+    }
+
+    public static PlaybackInfo defaultType() {
+        return new PlaybackInfo(PlaybackInfoType.DEFAULT);
+    }
+
+    public static PlaybackInfo sample() {
+        return new PlaybackInfo(PlaybackInfoType.SAMPLE);
+    }
+
+    public static PlaybackInfo ad() {
+        return new PlaybackInfo(PlaybackInfoType.AD);
+    }
 }

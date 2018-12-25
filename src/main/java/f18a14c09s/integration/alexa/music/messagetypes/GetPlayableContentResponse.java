@@ -18,8 +18,8 @@ public class GetPlayableContentResponse extends Response<GetPlayableContentRespo
 
     public GetPlayableContentResponse(String messageId) {
         MessageHeader header = new MessageHeader();
-        header.setNamespace("Alexa.Media.Search");
-        header.setName("GetPlayableContent.Response");
+        header.setNamespace(AlexaMediaSearch.NAMESPACE_NAME);
+        header.setName(AlexaMediaSearch.GET_PLAYABLE_CONTENT_RESPONSE.getMyName());
         header.setPayloadVersion("1.0");
         header.setMessageId(messageId);
         setHeader(header);

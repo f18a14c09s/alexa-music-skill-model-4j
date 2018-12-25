@@ -19,14 +19,22 @@ public class RequestDeserializer extends StdDeserializer<Request> {
 
     static {
         Map<RequestType, Class<? extends Request<?>>> tempMap = new HashMap<>();
-        tempMap.put(new RequestType("Alexa.Media.Search", "GetPlayableContent"), GetPlayableContentRequest.class);
-        tempMap.put(new RequestType("Alexa.Media.Playback", "Initiate"), InitiateRequest.class);
-        tempMap.put(new RequestType("Alexa.Media.PlayQueue", "GetItem"), GetItemRequest.class);
-        tempMap.put(new RequestType("Alexa.Audio.PlayQueue", "GetPreviousItem"), GetPreviousItemRequest.class);
-        tempMap.put(new RequestType("Alexa.Audio.PlayQueue", "GetNextItem"), GetNextItemRequest.class);
-        tempMap.put(new RequestType("Alexa.Media.PlayQueue", "GetView"), GetViewRequest.class);
-        tempMap.put(new RequestType("Alexa.Media.PlayQueue", "SetLoop"), SetLoopRequest.class);
-        tempMap.put(new RequestType("Alexa.Media.PlayQueue", "SetShuffle"), SetShuffleRequest.class);
+        tempMap.put(new RequestType(AlexaMediaSearch.NAMESPACE_NAME, AlexaMediaSearch.GET_PLAYABLE_CONTENT.getMyName()),
+                GetPlayableContentRequest.class);
+        tempMap.put(new RequestType(AlexaMediaPlayback.NAMESPACE_NAME, AlexaMediaPlayback.INITIATE.getMyName()),
+                InitiateRequest.class);
+        tempMap.put(new RequestType(AlexaMediaPlayQueue.NAMESPACE_NAME, AlexaMediaPlayQueue.GET_ITEM.getMyName()),
+                GetItemRequest.class);
+        tempMap.put(new RequestType(AlexaAudioPlayQueue.NAMESPACE_NAME,
+                AlexaAudioPlayQueue.GET_PREVIOUS_ITEM.getMyName()), GetPreviousItemRequest.class);
+        tempMap.put(new RequestType(AlexaAudioPlayQueue.NAMESPACE_NAME, AlexaAudioPlayQueue.GET_NEXT_ITEM.getMyName()),
+                GetNextItemRequest.class);
+        tempMap.put(new RequestType(AlexaMediaPlayQueue.NAMESPACE_NAME, AlexaMediaPlayQueue.GET_VIEW.getMyName()),
+                GetViewRequest.class);
+        tempMap.put(new RequestType(AlexaMediaPlayQueue.NAMESPACE_NAME, AlexaMediaPlayQueue.SET_LOOP.getMyName()),
+                SetLoopRequest.class);
+        tempMap.put(new RequestType(AlexaMediaPlayQueue.NAMESPACE_NAME, AlexaMediaPlayQueue.SET_SHUFFLE.getMyName()),
+                SetShuffleRequest.class);
         types = Collections.unmodifiableMap(tempMap);
     }
 

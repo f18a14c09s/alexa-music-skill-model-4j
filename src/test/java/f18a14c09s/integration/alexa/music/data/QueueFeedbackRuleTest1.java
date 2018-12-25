@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
+import static f18a14c09s.integration.alexa.music.data.Feedback.Type.PREFERENCE;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -18,7 +19,7 @@ public class QueueFeedbackRuleTest1 {
     void testDeserialization() throws IOException {
         ObjectMapper jsonMapper = new ObjectMapper();
         QueueFeedbackRule subject = jsonMapper.readValue(TEST_CASE, QueueFeedbackRule.class);
-        assertEquals(subject.getType(), "PREFERENCE");
+        assertEquals(subject.getType(), PREFERENCE);
         assertTrue((boolean) subject.getEnabled());
     }
 }

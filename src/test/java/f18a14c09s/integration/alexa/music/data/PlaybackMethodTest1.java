@@ -3,6 +3,7 @@ package f18a14c09s.integration.alexa.music.data;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import f18a14c09s.integration.alexa.music.control.data.ToggleQueueControl;
 import f18a14c09s.integration.alexa.music.playback.data.PlaybackMethod;
+import f18a14c09s.integration.util.DateUtil;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -43,7 +44,7 @@ public class PlaybackMethodTest1 {
         assertEquals(toggleQueueControl.getName(), LOOP);
         assertTrue((boolean) toggleQueueControl.getEnabled());
         assertFalse((boolean) toggleQueueControl.getSelected());
-        assertEquals(subject.getRules().getFeedback().getType(), "PREFERENCE");
+        assertEquals(subject.getRules().getFeedback().getType(), PREFERENCE);
         assertTrue((boolean) subject.getRules().getFeedback().getEnabled());
         assertEquals(subject.getId(), "76f325d5-a648-4e8f-87ad-6e53cf99e4c7");
         assertEquals(subject.getFirstItem().getId(), "e73befbe-8c27-4e4b-ab0c-9865ce8516f0");
@@ -139,7 +140,8 @@ public class PlaybackMethodTest1 {
         assertEquals(subject.getFirstItem().getStream().getUri(),
                 "http://cdn.example.com/api/1/a2f318467fbf2829996adc0880e0abd03d03b1ba6ac.mp3");
         assertEquals(((Number) subject.getFirstItem().getStream().getOffsetInMilliseconds()).longValue(), 0L);
-        assertEquals(subject.getFirstItem().getStream().getValidUntil(), "2018-05-10T19:11:35Z");
+        assertEquals(DateUtil.formatAsIso8601UtcSeconds(subject.getFirstItem().getStream().getValidUntil()),
+                "2018-05-10T19:11:35Z");
         assertEquals(subject.getFirstItem().getFeedback().getType(), PREFERENCE);
         assertEquals(subject.getFirstItem().getFeedback().getValue(), POSITIVE);
         assertEquals(subject.getType(), ALEXA_AUDIO_PLAYER_QUEUE);

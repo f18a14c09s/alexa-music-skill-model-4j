@@ -57,6 +57,22 @@ public class Track extends BaseEntity {
     @Column(name = "track_number")
     private Long trackNumber;
 
+    @JsonIgnore
+    @Column(name = "last_track_number")
+    private Long lastTrackNumber;
+
+    @JsonIgnore
+    public Optional<Boolean> getFirst() {
+        return getTrackNumber() == null ? Optional.empty() : Optional.of(getTrackNumber() == 1);
+    }
+
+    @JsonIgnore
+    public Optional<Boolean> getLast() {
+        return getTrackNumber() == null || getLastTrackNumber() == null ?
+                Optional.empty() :
+                Optional.of(getTrackNumber() >= getLastTrackNumber());
+    }
+
     @Override
     public MediaMetadata toMediaMetadata() {
         TrackMetadata retval = new TrackMetadata();
