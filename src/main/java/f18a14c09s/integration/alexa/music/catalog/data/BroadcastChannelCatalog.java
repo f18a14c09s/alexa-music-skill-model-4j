@@ -23,4 +23,9 @@ public class BroadcastChannelCatalog extends AbstractCatalog {
     public BroadcastChannelCatalog() {
         super(null, null);
     }
+
+    @Override
+    public String getDefaultUsage() {
+        return "AlexaMusic.Catalog.BroadcastChannel";
+    }
 }

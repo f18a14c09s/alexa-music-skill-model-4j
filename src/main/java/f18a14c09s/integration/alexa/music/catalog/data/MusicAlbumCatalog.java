@@ -27,4 +27,9 @@ public class MusicAlbumCatalog extends AbstractCatalog {
     public MusicAlbumCatalog() {
         super(AMAZON_MUSIC_ALBUM, 2.0);
     }
+
+    @Override
+    public String getDefaultUsage() {
+        return "AlexaMusic.Catalog.MusicAlbum";
+    }
 }

@@ -41,4 +41,7 @@ public abstract class AbstractCatalog {
     }
 
     public abstract <E extends BaseEntity> List<E> getEntities();
+
+    @JsonIgnore
+    public abstract String getDefaultUsage();
 }

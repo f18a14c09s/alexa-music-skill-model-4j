@@ -1,6 +1,7 @@
 package f18a14c09s.integration.alexa.music.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import f18a14c09s.integration.alexa.music.data.EntityMetadata;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,7 +19,7 @@ import java.util.*;
 @DiscriminatorValue(EntityTypeName.ALBUM)
 public class AlbumReference extends BaseEntityReference {
     @Transient
-    private List<EntityName> names;
+    private List<EntityName> names = Collections.emptyList();
     @Transient
     private List<AlternateNames> alternateNames;
     @Transient
@@ -27,5 +28,16 @@ public class AlbumReference extends BaseEntityReference {
     @Override
     public String toString() {
         return String.format("%s %s", getClass().getSimpleName(), getId());
+    }
+
+    public EntityMetadata toEntityMetadata() {
+        EntityMetadata retval = new EntityMetadata();
+        retval.setName(Optional.ofNullable(getNames())
+                .filter(names -> !names.isEmpty())
+                .map(names -> names.get(0))
+                .filter(name -> name.getValue() != null)
+                .map(EntityName::toMetadataNameProperty)
+                .orElse(null));
+        return retval;
     }
 }

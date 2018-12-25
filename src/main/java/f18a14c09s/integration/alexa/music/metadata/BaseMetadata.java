@@ -2,7 +2,7 @@ package f18a14c09s.integration.alexa.music.metadata;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import f18a14c09s.integration.alexa.data.MetadataNameProperty;
+import f18a14c09s.integration.alexa.music.data.MetadataNameProperty;
 import f18a14c09s.integration.alexa.music.data.Art;
 import f18a14c09s.integration.alexa.music.data.ResolvedSelectionCriteria;
 import lombok.Getter;

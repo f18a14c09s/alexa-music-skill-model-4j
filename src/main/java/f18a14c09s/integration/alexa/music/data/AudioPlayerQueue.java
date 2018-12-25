@@ -19,7 +19,7 @@ public class AudioPlayerQueue extends PlaybackMethod {
     private ArrayList<String> queueIdsToActivate;
     private Item firstItem;
 
-    protected AudioPlayerQueue() {
+    public AudioPlayerQueue() {
         super(PlaybackMethodType.ALEXA_AUDIO_PLAYER_QUEUE);
     }
 }

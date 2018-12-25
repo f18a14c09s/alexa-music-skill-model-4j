@@ -26,7 +26,7 @@ public class Popularity {
     @JoinTable(name = "popularity_pop_override", joinColumns = {
             @JoinColumn(name = "popularity_id", referencedColumnName = "id")}, inverseJoinColumns = {
             @JoinColumn(name = "pop_override_id", referencedColumnName = "id")})
-    private List<PopularityOverride> overrides;
+    private List<PopularityOverride> overrides = Collections.emptyList();
 
     public Popularity() {
     }

@@ -23,4 +23,9 @@ public class MusicPlaylistCatalog extends AbstractCatalog {
     public MusicPlaylistCatalog() {
         super(null, null);
     }
+
+    @Override
+    public String getDefaultUsage() {
+        return "AlexaMusic.Catalog.MusicPlaylist";
+    }
 }

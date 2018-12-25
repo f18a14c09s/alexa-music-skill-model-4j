@@ -23,4 +23,9 @@ public class GenreCatalog extends AbstractCatalog {
     public GenreCatalog() {
         super(null, null);
     }
+
+    @Override
+    public String getDefaultUsage() {
+        return "AlexaMusic.Catalog.Genre";
+    }
 }

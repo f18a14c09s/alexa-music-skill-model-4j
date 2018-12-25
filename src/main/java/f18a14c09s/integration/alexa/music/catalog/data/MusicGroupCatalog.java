@@ -27,4 +27,9 @@ public class MusicGroupCatalog extends AbstractCatalog {
     public MusicGroupCatalog() {
         super(AMAZON_MUSIC_GROUP, 2.0);
     }
+
+    @Override
+    public String getDefaultUsage() {
+        return "AlexaMusic.Catalog.MusicGroup";
+    }
 }

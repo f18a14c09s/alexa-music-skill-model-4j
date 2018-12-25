@@ -1,6 +1,6 @@
 package f18a14c09s.integration.alexa.music.metadata;
 
-import f18a14c09s.integration.alexa.data.MetadataNameProperty;
+import f18a14c09s.integration.alexa.music.data.MetadataNameProperty;
 import f18a14c09s.integration.alexa.music.data.Art;
 
 public abstract class MediaMetadata extends BaseMetadata {

@@ -20,4 +20,23 @@ public class ContentActions {
      * Determines whether the content is browsable.
      */
     private Boolean browseable;
+
+    public static ContentActions browseable() {
+        ContentActions retval = new ContentActions();
+        retval.setBrowseable(true);
+        return retval;
+    }
+
+    public static ContentActions playable() {
+        ContentActions retval = new ContentActions();
+        retval.setPlayable(true);
+        return retval;
+    }
+
+    public static ContentActions browseableAndPlayable() {
+        ContentActions retval = new ContentActions();
+        retval.setBrowseable(true);
+        retval.setPlayable(true);
+        return retval;
+    }
 }

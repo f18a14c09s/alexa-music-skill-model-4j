@@ -2,6 +2,7 @@ package f18a14c09s.integration.alexa.music.messagetypes;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import f18a14c09s.integration.alexa.data.MessageHeader;
 import f18a14c09s.integration.alexa.music.playback.data.PlaybackMethod;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,6 +12,19 @@ import lombok.Setter;
  */
 @JsonDeserialize
 public class InitiateResponse extends Response<InitiateResponse.Payload> {
+    public InitiateResponse() {
+        this(null);
+    }
+
+    public InitiateResponse(String messageId) {
+        MessageHeader header = new MessageHeader();
+        header.setNamespace("Alexa.Media.Playback");
+        header.setName("Initiate.Response");
+        header.setPayloadVersion("1.0");
+        header.setMessageId(messageId);
+        setHeader(header);
+    }
+
     @Getter
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)

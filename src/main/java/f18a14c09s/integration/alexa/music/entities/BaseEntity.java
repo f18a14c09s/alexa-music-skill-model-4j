@@ -3,6 +3,7 @@ package f18a14c09s.integration.alexa.music.entities;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import f18a14c09s.integration.alexa.data.Locale;
+import f18a14c09s.integration.alexa.music.metadata.MediaMetadata;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,7 +15,6 @@ import java.util.*;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Inheritance(strategy = InheritanceType.JOINED)
 @Entity
-//@MappedSuperclass
 @Table(name = "music_entities")
 @DiscriminatorColumn(name = "type")
 public abstract class BaseEntity {
@@ -37,7 +37,7 @@ public abstract class BaseEntity {
     @JoinTable(name = "entity_entity_names", joinColumns = {
             @JoinColumn(name = "entity_id", referencedColumnName = "id")}, inverseJoinColumns = {
             @JoinColumn(name = "name_id", referencedColumnName = "id")})
-    private List<EntityName> names;
+    private List<EntityName> names = Collections.emptyList();
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(name = "entity_alt_names", joinColumns = {
@@ -66,5 +66,9 @@ public abstract class BaseEntity {
         this.names = names;
         this.alternateNames = alternateNames;
         this.popularity = popularity;
+    }
+
+    public MediaMetadata toMediaMetadata() {
+        return null;
     }
 }

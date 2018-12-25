@@ -3,11 +3,14 @@ package f18a14c09s.integration.alexa.music.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import f18a14c09s.integration.alexa.music.data.Art;
+import f18a14c09s.integration.alexa.music.metadata.MediaMetadata;
+import f18a14c09s.integration.alexa.music.metadata.TrackMetadata;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.*;
+import java.util.stream.*;
 
 @Getter
 @Setter
@@ -45,4 +48,35 @@ public class Track extends BaseEntity {
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "art_id", referencedColumnName = "id")
     private Art art;
+
+    @JsonIgnore
+    @Column(name = "duration_seconds")
+    private Long durationSeconds;
+
+    @JsonIgnore
+    @Column(name = "track_number")
+    private Long trackNumber;
+
+    @Override
+    public MediaMetadata toMediaMetadata() {
+        TrackMetadata retval = new TrackMetadata();
+        retval.setAlbum(Optional.ofNullable(getAlbums())
+                .filter(albums -> !albums.isEmpty())
+                .map(albums -> albums.get(0))
+                .map(AlbumReference::toEntityMetadata)
+                .orElse(null));
+        retval.setAuthors(Optional.ofNullable(getArtists())
+                .map(Collection::stream)
+                .orElse(Stream.empty())
+                .map(ArtistReference::toEntityMetadata)
+                .collect(Collectors.toCollection(ArrayList::new)));
+        retval.setArt(getArt());
+        retval.setName(Optional.ofNullable(getNames())
+                .filter(names -> !names.isEmpty())
+                .map(names -> names.get(0))
+                .filter(name -> name.getValue() != null)
+                .map(EntityName::toMetadataNameProperty)
+                .orElse(null));
+        return retval;
+    }
 }

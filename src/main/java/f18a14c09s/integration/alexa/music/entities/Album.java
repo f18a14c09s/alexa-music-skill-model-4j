@@ -3,11 +3,15 @@ package f18a14c09s.integration.alexa.music.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import f18a14c09s.integration.alexa.music.data.Art;
+import f18a14c09s.integration.alexa.music.metadata.AlbumMetadata;
+import f18a14c09s.integration.alexa.music.metadata.MediaMetadata;
+import f18a14c09s.integration.alexa.music.metadata.TrackMetadata;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.*;
+import java.util.stream.*;
 
 @Getter
 @Setter
@@ -42,6 +46,24 @@ public class Album extends BaseEntity {
         retval.setId(getId());
         retval.setNames(getNames());
         retval.setReleaseType(getReleaseType());
+        return retval;
+    }
+
+    @Override
+    public MediaMetadata toMediaMetadata() {
+        AlbumMetadata retval = new AlbumMetadata();
+        retval.setAuthors(Optional.ofNullable(getArtists())
+                .map(Collection::stream)
+                .orElse(Stream.empty())
+                .map(ArtistReference::toEntityMetadata)
+                .collect(Collectors.toCollection(ArrayList::new)));
+        retval.setArt(getArt());
+        retval.setName(Optional.ofNullable(getNames())
+                .filter(names -> !names.isEmpty())
+                .map(names -> names.get(0))
+                .filter(name -> name.getValue() != null)
+                .map(EntityName::toMetadataNameProperty)
+                .orElse(null));
         return retval;
     }
 }

@@ -27,4 +27,9 @@ public class MusicRecordingCatalog extends AbstractCatalog {
     public MusicRecordingCatalog() {
         super(AMAZON_MUSIC_RECORDING, 2.0);
     }
+
+    @Override
+    public String getDefaultUsage() {
+        return "AlexaMusic.Catalog.MusicRecording";
+    }
 }
