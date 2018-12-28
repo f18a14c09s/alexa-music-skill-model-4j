@@ -27,19 +27,19 @@ public abstract class BaseEntity {
 
     private Boolean deleted;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "entity_locales", joinColumns = {
             @JoinColumn(name = "entity_id", referencedColumnName = "id")}, inverseJoinColumns = {
             @JoinColumn(name = "locale_id", referencedColumnName = "id")})
     private List<Locale> locales;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
     @JoinTable(name = "entity_entity_names", joinColumns = {
             @JoinColumn(name = "entity_id", referencedColumnName = "id")}, inverseJoinColumns = {
             @JoinColumn(name = "name_id", referencedColumnName = "id")})
     private List<EntityName> names = Collections.emptyList();
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
     @JoinTable(name = "entity_alt_names", joinColumns = {
             @JoinColumn(name = "entity_id", referencedColumnName = "id")}, inverseJoinColumns = {
             @JoinColumn(name = "alt_name_id", referencedColumnName = "id")})

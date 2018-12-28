@@ -28,13 +28,13 @@ public class Track extends BaseEntity {
     @Column(name = "release_type")
     private String releaseType;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
     @JoinTable(name = "song_artists", joinColumns = {
             @JoinColumn(name = "song_id", referencedColumnName = "id")}, inverseJoinColumns = {
             @JoinColumn(name = "artist_id", referencedColumnName = "id")})
     private List<ArtistReference> artists;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
     @JoinTable(name = "song_albums", joinColumns = {
             @JoinColumn(name = "song_id", referencedColumnName = "id")}, inverseJoinColumns = {
             @JoinColumn(name = "album_id", referencedColumnName = "id")})

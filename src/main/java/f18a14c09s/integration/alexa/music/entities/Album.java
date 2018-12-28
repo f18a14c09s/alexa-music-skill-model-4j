@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import f18a14c09s.integration.alexa.music.data.Art;
 import f18a14c09s.integration.alexa.music.metadata.AlbumMetadata;
 import f18a14c09s.integration.alexa.music.metadata.MediaMetadata;
-import f18a14c09s.integration.alexa.music.metadata.TrackMetadata;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -29,7 +28,7 @@ public class Album extends BaseEntity {
     @Column(name = "release_type")
     private String releaseType;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
     @JoinTable(name = "album_artists", joinColumns = {
             @JoinColumn(name = "album_id", referencedColumnName = "id")}, inverseJoinColumns = {
             @JoinColumn(name = "artist_id", referencedColumnName = "id")})
