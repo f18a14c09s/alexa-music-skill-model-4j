@@ -5,10 +5,7 @@ import f18a14c09s.integration.alexa.music.data.EntityMetadata;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import java.util.*;
 
 @Getter
@@ -18,11 +15,7 @@ import java.util.*;
 @Table(name = RelationalTableName.ALBUM)
 @DiscriminatorValue(EntityTypeName.ALBUM)
 public class AlbumReference extends BaseEntityReference {
-    @Transient
-    private List<EntityName> names = Collections.emptyList();
-    @Transient
-    private List<AlternateNames> alternateNames;
-    @Transient
+    @Column(name = "release_type")
     private String releaseType;
 
     @Override

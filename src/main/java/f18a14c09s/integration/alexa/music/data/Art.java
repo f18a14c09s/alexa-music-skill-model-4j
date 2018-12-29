@@ -25,7 +25,7 @@ public class Art {
     /**
      * List of ArtSource objects each describing one size of the art. See the ArtSource object for more information.
      */
-    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "art_id", referencedColumnName = "id")
     private List<ArtSource> sources;
 

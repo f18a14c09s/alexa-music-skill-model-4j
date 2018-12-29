@@ -39,9 +39,10 @@ public class EntityName {
         MetadataNameProperty retval = new MetadataNameProperty();
         retval.setDisplay(getValue());
         SpeechInfo speechInfo = new SpeechInfo();
-        speechInfo.setPlayBehavior(OutputSpeechPlayBehavior.REPLACE_ALL);
+//        speechInfo.setPlayBehavior(OutputSpeechPlayBehavior.REPLACE_ALL);
         speechInfo.setText(getValue() == null ? null : getValue().toLowerCase());
         speechInfo.setType(SpeechType.PLAIN_TEXT);
+        retval.setSpeech(speechInfo);
         return retval;
     }
 }

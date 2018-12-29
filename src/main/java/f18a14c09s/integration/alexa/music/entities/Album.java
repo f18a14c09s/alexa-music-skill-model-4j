@@ -28,7 +28,7 @@ public class Album extends BaseEntity {
     @Column(name = "release_type")
     private String releaseType;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(name = "album_artists", joinColumns = {
             @JoinColumn(name = "album_id", referencedColumnName = "id")}, inverseJoinColumns = {
             @JoinColumn(name = "artist_id", referencedColumnName = "id")})

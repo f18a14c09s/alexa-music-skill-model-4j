@@ -22,7 +22,7 @@ public class Popularity {
 
     @Getter
     @Setter
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(name = "popularity_pop_override", joinColumns = {
             @JoinColumn(name = "popularity_id", referencedColumnName = "id")}, inverseJoinColumns = {
             @JoinColumn(name = "pop_override_id", referencedColumnName = "id")})
