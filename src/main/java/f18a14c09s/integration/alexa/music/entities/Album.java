@@ -39,6 +39,16 @@ public class Album extends BaseEntity {
     @JoinColumn(name = "art_id", referencedColumnName = "id")
     private Art art;
 
+    /**
+     * Example influences of this value:
+     * (*) Release year;
+     * (*) File system directory name that contains the album's tracks;
+     * (*) Album name.
+     */
+    @JsonIgnore
+    @Column(name = "natural_order")
+    private Long naturalOrder;
+
     public AlbumReference toReference() {
         AlbumReference retval = new AlbumReference();
         retval.setAlternateNames(getAlternateNames());

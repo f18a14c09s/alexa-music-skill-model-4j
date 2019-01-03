@@ -8,7 +8,6 @@ import lombok.Setter;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import java.util.*;
 
 @Getter
@@ -18,11 +17,6 @@ import java.util.*;
 @Table(name = RelationalTableName.ARTIST)
 @DiscriminatorValue(EntityTypeName.ARTIST)
 public class ArtistReference extends BaseEntityReference {
-    @Transient
-    private List<EntityName> names = Collections.emptyList();
-    @Transient
-    private List<AlternateNames> alternateNames;
-
     public EntityMetadata toEntityMetadata() {
         EntityMetadata retval = new EntityMetadata();
         retval.setName(Optional.ofNullable(getNames())

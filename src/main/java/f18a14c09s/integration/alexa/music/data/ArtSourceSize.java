@@ -1,5 +1,7 @@
 package f18a14c09s.integration.alexa.music.data;
 
+import java.util.*;
+
 public enum ArtSourceSize {
     /**
      * recommended for images approximately 48 x 48 pixels
@@ -21,6 +23,24 @@ public enum ArtSourceSize {
      * recommended for 600 x 600 pixels
      */
     X_LARGE;
+
+    public List<ArtSourceSize> getAlternateSizesByPriority() {
+        switch (this) {
+            case X_SMALL:
+                return Arrays.asList(SMALL, MEDIUM, LARGE, X_LARGE);
+            case SMALL:
+                return Arrays.asList(MEDIUM, LARGE, X_LARGE, X_SMALL);
+            case MEDIUM:
+                return Arrays.asList(LARGE, X_LARGE, SMALL, X_SMALL);
+            case LARGE:
+                return Arrays.asList(X_LARGE, MEDIUM, SMALL, X_SMALL);
+            case X_LARGE:
+                return Arrays.asList(LARGE, MEDIUM, SMALL, X_SMALL);
+            default:
+                throw new UnsupportedOperationException(String.format("Need to add support for %s to this method.",
+                        this));
+        }
+    }
 
     /**
      * Correlates the specified dimensions with the recommended ArtSourceSize.

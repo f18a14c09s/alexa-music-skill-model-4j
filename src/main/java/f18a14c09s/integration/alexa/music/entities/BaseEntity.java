@@ -27,7 +27,7 @@ public abstract class BaseEntity {
 
     private Boolean deleted;
 
-    @ManyToMany()
+    @ManyToMany
     @JoinTable(name = "entity_locales", joinColumns = {
             @JoinColumn(name = "entity_id", referencedColumnName = "id")}, inverseJoinColumns = {
             @JoinColumn(name = "locale_id", referencedColumnName = "id")})

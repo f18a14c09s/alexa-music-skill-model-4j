@@ -55,7 +55,7 @@ public class Track extends BaseEntity {
 
     @JsonIgnore
     @Column(name = "track_number")
-    private Long trackNumber;
+    private Long naturalOrder;
 
     @JsonIgnore
     @Column(name = "last_track_number")
@@ -63,14 +63,14 @@ public class Track extends BaseEntity {
 
     @JsonIgnore
     public Optional<Boolean> getFirst() {
-        return getTrackNumber() == null ? Optional.empty() : Optional.of(getTrackNumber() == 1);
+        return getNaturalOrder() == null ? Optional.empty() : Optional.of(getNaturalOrder() == 1);
     }
 
     @JsonIgnore
     public Optional<Boolean> getLast() {
-        return getTrackNumber() == null || getLastTrackNumber() == null ?
+        return getNaturalOrder() == null || getLastTrackNumber() == null ?
                 Optional.empty() :
-                Optional.of(getTrackNumber() >= getLastTrackNumber());
+                Optional.of(getNaturalOrder() >= getLastTrackNumber());
     }
 
     @Override

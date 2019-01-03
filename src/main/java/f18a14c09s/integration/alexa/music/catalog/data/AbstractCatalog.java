@@ -16,8 +16,6 @@ import java.util.*;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Entity
 @Table(name = "music_catalogs")
-//@MappedSuperclass
-//@SequenceGenerator(name = "catalog_id_sequence", sequenceName = "catalog_id_sequence", initialValue = 1, allocationSize = 100)
 @DiscriminatorColumn(name = "type")
 public abstract class AbstractCatalog {
     @JsonIgnore
