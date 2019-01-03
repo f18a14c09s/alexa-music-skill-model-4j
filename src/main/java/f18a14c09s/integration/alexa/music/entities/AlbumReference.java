@@ -1,11 +1,15 @@
 package f18a14c09s.integration.alexa.music.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import f18a14c09s.integration.alexa.music.data.EntityMetadata;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.*;
 
 @Getter
@@ -17,6 +21,10 @@ import java.util.*;
 public class AlbumReference extends BaseEntityReference {
     @Column(name = "release_type")
     private String releaseType;
+
+    @JsonIgnore
+    @Column(name = "natural_order")
+    private Long naturalOrder;
 
     @Override
     public String toString() {
