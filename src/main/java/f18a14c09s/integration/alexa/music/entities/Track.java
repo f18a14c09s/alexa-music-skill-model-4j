@@ -54,24 +54,8 @@ public class Track extends BaseEntity {
     private Long durationSeconds;
 
     @JsonIgnore
-    @Column(name = "track_number")
+    @Column(name = "natural_order")
     private Long naturalOrder;
-
-    @JsonIgnore
-    @Column(name = "last_track_number")
-    private Long lastTrackNumber;
-
-    @JsonIgnore
-    public Optional<Boolean> getFirst() {
-        return getNaturalOrder() == null ? Optional.empty() : Optional.of(getNaturalOrder() == 1);
-    }
-
-    @JsonIgnore
-    public Optional<Boolean> getLast() {
-        return getNaturalOrder() == null || getLastTrackNumber() == null ?
-                Optional.empty() :
-                Optional.of(getNaturalOrder() >= getLastTrackNumber());
-    }
 
     @Override
     public MediaMetadata toMediaMetadata() {

@@ -12,10 +12,6 @@ import lombok.Setter;
  */
 @JsonDeserialize
 public class GetNextItemResponse extends Response<GetNextItemResponse.Payload> {
-    public GetNextItemResponse(String messageId) {
-        this(messageId, null);
-    }
-
     public GetNextItemResponse(String messageId, Item item) {
         MessageHeader header = new MessageHeader();
         header.setNamespace(AlexaAudioPlayQueue.NAMESPACE_NAME);

@@ -12,14 +12,6 @@ import lombok.Setter;
  */
 @JsonDeserialize
 public class InitiateResponse extends Response<InitiateResponse.Payload> {
-    public InitiateResponse() {
-        this(null);
-    }
-
-    public InitiateResponse(String messageId) {
-        this(messageId, null);
-    }
-
     public InitiateResponse(String messageId, PlaybackMethod playbackMethod) {
         MessageHeader header = new MessageHeader();
         header.setNamespace(AlexaMediaPlayback.NAMESPACE_NAME);
