@@ -37,6 +37,10 @@ public class Art {
     public Art() {
     }
 
+    public Art(List<ArtSource> sources) {
+        this(null, sources);
+    }
+
     public Art(String contentDescription, List<ArtSource> sources) {
         this.contentDescription = contentDescription;
         this.sources = sources;
