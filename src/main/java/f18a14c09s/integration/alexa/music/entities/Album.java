@@ -51,6 +51,15 @@ public class Album extends BaseEntity {
     @Column(name = "natural_order")
     private Long naturalOrder;
 
+    public AlbumReference toReference() {
+        AlbumReference retval = new AlbumReference();
+        retval.setAlternateNames(getAlternateNames());
+        retval.setId(getId());
+        retval.setNames(getNames());
+        retval.setReleaseType(getReleaseType());
+        return retval;
+    }
+
     @Override
     public MediaMetadata toMediaMetadata() {
         AlbumMetadata retval = new AlbumMetadata();

@@ -24,6 +24,14 @@ public class Artist extends BaseEntity {
     @JoinColumn(name = "art_id", referencedColumnName = "id")
     private Art art;
 
+    public ArtistReference toReference() {
+        ArtistReference retval = new ArtistReference();
+        retval.setAlternateNames(getAlternateNames());
+        retval.setId(getId());
+        retval.setNames(getNames());
+        return retval;
+    }
+
     @Override
     public MediaMetadata toMediaMetadata() {
         ArtistMetadata retval = new ArtistMetadata();
