@@ -12,6 +12,13 @@ import lombok.Setter;
  */
 @JsonDeserialize
 public class GetPreviousItemResponse extends Response<GetPreviousItemResponse.Payload> {
+    /**
+     * No-arg constructor is used during deserialization.
+     */
+    public GetPreviousItemResponse() {
+        this(null, null);
+    }
+
     public GetPreviousItemResponse(String messageId, Item item) {
         MessageHeader header = new MessageHeader();
         header.setNamespace(AlexaAudioPlayQueue.NAMESPACE_NAME);

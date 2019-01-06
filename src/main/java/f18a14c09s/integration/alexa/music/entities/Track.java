@@ -2,6 +2,7 @@ package f18a14c09s.integration.alexa.music.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import f18a14c09s.integration.alexa.data.Language;
 import f18a14c09s.integration.alexa.music.data.Art;
 import f18a14c09s.integration.alexa.music.metadata.MediaMetadata;
 import f18a14c09s.integration.alexa.music.metadata.TrackMetadata;
@@ -23,10 +24,18 @@ public class Track extends BaseEntity {
     @CollectionTable(name = "song_languages", joinColumns = {
             @JoinColumn(name = "song_id", referencedColumnName = "id")})
     @Column(name = "content_language")
-    private List<String> languageOfContent;
+    @Enumerated(EnumType.STRING)
+    private List<Language> languageOfContent;
 
-    @Column(name = "release_type")
-    private String releaseType;
+    // Contradiction:
+    // (1) The Alexa Music Skill documentation says that Track objects have the "releaseType" property
+    //     (https://developer.amazon.com/docs/music-skills/catalog-reference.html#track);
+    // but
+    // (2) the Alexa Skill Kit's catalog service complains with the following error: "object instance has properties
+    //     which are not allowed by the schema: [\"releaseType\"]."
+    // The latter wins.
+//    @Column(name = "release_type")
+//    private String releaseType;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(name = "song_artists", joinColumns = {

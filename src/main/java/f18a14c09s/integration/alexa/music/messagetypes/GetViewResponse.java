@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import f18a14c09s.integration.alexa.music.control.data.QueueControl;
 import f18a14c09s.integration.alexa.music.data.Item;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.*;
@@ -13,6 +14,7 @@ import java.util.*;
  * @see GetViewRequest
  */
 @JsonDeserialize
+@NoArgsConstructor // No-arg constructor is used during deserialization.
 public class GetViewResponse extends Response<GetViewResponse.Payload> {
     @Getter
     @Setter

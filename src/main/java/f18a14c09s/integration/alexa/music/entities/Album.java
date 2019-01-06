@@ -2,6 +2,7 @@ package f18a14c09s.integration.alexa.music.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import f18a14c09s.integration.alexa.data.Language;
 import f18a14c09s.integration.alexa.music.data.Art;
 import f18a14c09s.integration.alexa.music.metadata.AlbumMetadata;
 import f18a14c09s.integration.alexa.music.metadata.MediaMetadata;
@@ -23,7 +24,8 @@ public class Album extends BaseEntity {
     @CollectionTable(name = "album_languages", joinColumns = {
             @JoinColumn(name = "album_id", referencedColumnName = "id")})
     @Column(name = "content_language")
-    private List<String> languageOfContent;
+    @Enumerated(EnumType.STRING)
+    private List<Language> languageOfContent;
 
     @Column(name = "release_type")
     private String releaseType;
@@ -48,15 +50,6 @@ public class Album extends BaseEntity {
     @JsonIgnore
     @Column(name = "natural_order")
     private Long naturalOrder;
-
-    public AlbumReference toReference() {
-        AlbumReference retval = new AlbumReference();
-        retval.setAlternateNames(getAlternateNames());
-        retval.setId(getId());
-        retval.setNames(getNames());
-        retval.setReleaseType(getReleaseType());
-        return retval;
-    }
 
     @Override
     public MediaMetadata toMediaMetadata() {

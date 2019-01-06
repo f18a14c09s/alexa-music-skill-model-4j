@@ -5,10 +5,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+
+import static f18a14c09s.integration.alexa.data.Country.US;
+import static f18a14c09s.integration.alexa.data.Language.en;
 
 @Getter
 @Setter
@@ -17,20 +17,22 @@ import javax.persistence.Table;
 @Table(name = "locales")
 public class Locale {
     public static Locale en_US() {
-        return new Locale("US", "en");
+        return new Locale(US, en);
     }
 
     @JsonIgnore
     @Id
     @GeneratedValue
     private Long id;
-    private String country;
-    private String language;
+    @Enumerated(EnumType.STRING)
+    private Country country;
+    @Enumerated(EnumType.STRING)
+    private Language language;
 
     public Locale() {
     }
 
-    public Locale(String country, String language) {
+    public Locale(Country country, Language language) {
         this.country = country;
         this.language = language;
     }

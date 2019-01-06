@@ -12,6 +12,9 @@ import lombok.Setter;
  */
 @JsonDeserialize
 public class GetPlayableContentResponse extends Response<GetPlayableContentResponse.Payload> {
+    /**
+     * No-arg constructor is used during deserialization.
+     */
     public GetPlayableContentResponse() {
         this(null);
     }

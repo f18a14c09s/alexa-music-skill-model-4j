@@ -12,6 +12,13 @@ import lombok.Setter;
  */
 @JsonDeserialize
 public class InitiateResponse extends Response<InitiateResponse.Payload> {
+    /**
+     * No-arg constructor is used during deserialization.
+     */
+    public InitiateResponse() {
+        this(null, null);
+    }
+
     public InitiateResponse(String messageId, PlaybackMethod playbackMethod) {
         MessageHeader header = new MessageHeader();
         header.setNamespace(AlexaMediaPlayback.NAMESPACE_NAME);

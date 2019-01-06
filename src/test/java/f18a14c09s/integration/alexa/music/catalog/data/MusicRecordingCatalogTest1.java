@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
+import static f18a14c09s.integration.alexa.data.Country.US;
+import static f18a14c09s.integration.alexa.data.Language.en;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -20,16 +22,16 @@ public class MusicRecordingCatalogTest1 {
         ObjectMapper jsonMapper = new ObjectMapper();
         MusicRecordingCatalog subject = jsonMapper.readValue(TEST_CASE, MusicRecordingCatalog.class);
 
-        assertEquals(subject.getLocales().get(0).getCountry(), "US");
-        assertEquals(subject.getLocales().get(0).getLanguage(), "en");
+        assertEquals(subject.getLocales().get(0).getCountry(), US);
+        assertEquals(subject.getLocales().get(0).getLanguage(), en);
         assertEquals(subject.getEntities().get(0).getId(), "track.001");
-        assertEquals(subject.getEntities().get(0).getNames().get(0).getLanguage(), "en");
+        assertEquals(subject.getEntities().get(0).getNames().get(0).getLanguage(), en);
         assertEquals(subject.getEntities().get(0).getNames().get(0).getValue(), "Heart-Shaped Box");
         assertEquals(((Number) subject.getEntities().get(0).getPopularity().getDefault()).longValue(), 100L);
 
-        assertEquals(subject.getEntities().get(0).getPopularity().getOverrides().get(0).getLocale().getCountry(), "US");
+        assertEquals(subject.getEntities().get(0).getPopularity().getOverrides().get(0).getLocale().getCountry(), US);
         assertEquals(subject.getEntities().get(0).getPopularity().getOverrides().get(0).getLocale().getLanguage(),
-                "en");
+                en);
         assertEquals(((Number) subject.getEntities()
                 .get(0)
                 .getPopularity()
@@ -38,31 +40,31 @@ public class MusicRecordingCatalogTest1 {
                 .getValue()).longValue(), 100L);
         assertEquals(DateUtil.formatAsIso8601Utc(subject.getEntities().get(0).getLastUpdatedTime()),
                 "2018-08-01T00:00:00.000Z");
-        assertEquals(subject.getEntities().get(0).getAlternateNames().get(0).getLanguage(), "en");
+        assertEquals(subject.getEntities().get(0).getAlternateNames().get(0).getLanguage(), en);
         assertEquals(subject.getEntities().get(0).getAlternateNames().get(0).getValues().get(0), "heart shaped box");
-        assertEquals(subject.getEntities().get(0).getLocales().get(0).getCountry(), "US");
-        assertEquals(subject.getEntities().get(0).getLocales().get(0).getLanguage(), "en");
-        assertEquals(subject.getEntities().get(0).getLanguageOfContent().get(0), "en");
+        assertEquals(subject.getEntities().get(0).getLocales().get(0).getCountry(), US);
+        assertEquals(subject.getEntities().get(0).getLocales().get(0).getLanguage(), en);
+        assertEquals(subject.getEntities().get(0).getLanguageOfContent().get(0), en);
         assertEquals(subject.getEntities().get(0).getArtists().get(0).getId(), "artist.001");
-        assertEquals(subject.getEntities().get(0).getArtists().get(0).getNames().get(0).getLanguage(), "en");
+        assertEquals(subject.getEntities().get(0).getArtists().get(0).getNames().get(0).getLanguage(), en);
         assertEquals(subject.getEntities().get(0).getArtists().get(0).getNames().get(0).getValue(), "Nirvana");
-        assertEquals(subject.getEntities().get(0).getArtists().get(0).getAlternateNames().get(0).getLanguage(), "en");
+        assertEquals(subject.getEntities().get(0).getArtists().get(0).getAlternateNames().get(0).getLanguage(), en);
         assertEquals(subject.getEntities().get(0).getArtists().get(0).getAlternateNames().get(0).getValues().get(0),
                 "Kurt Cobain");
         assertEquals(subject.getEntities().get(0).getAlbums().get(0).getId(), "album.001");
-        assertEquals(subject.getEntities().get(0).getAlbums().get(0).getNames().get(0).getLanguage(), "en");
+        assertEquals(subject.getEntities().get(0).getAlbums().get(0).getNames().get(0).getLanguage(), en);
         assertEquals(subject.getEntities().get(0).getAlbums().get(0).getNames().get(0).getValue(), "In Utero");
-        assertEquals(subject.getEntities().get(0).getAlbums().get(0).getAlternateNames().get(0).getLanguage(), "en");
+        assertEquals(subject.getEntities().get(0).getAlbums().get(0).getAlternateNames().get(0).getLanguage(), en);
         assertEquals(subject.getEntities().get(0).getAlbums().get(0).getReleaseType(), "Studio Album");
         assertFalse((boolean) subject.getEntities().get(0).getDeleted());
         assertEquals(subject.getEntities().get(1).getId(), "track.002");
-        assertEquals(subject.getEntities().get(1).getNames().get(0).getLanguage(), "en");
+        assertEquals(subject.getEntities().get(1).getNames().get(0).getLanguage(), en);
         assertEquals(subject.getEntities().get(1).getNames().get(0).getValue(), "Black Hole Sun");
         assertEquals(((Number) subject.getEntities().get(1).getPopularity().getDefault()).longValue(), 100L);
 
-        assertEquals(subject.getEntities().get(1).getPopularity().getOverrides().get(0).getLocale().getCountry(), "US");
+        assertEquals(subject.getEntities().get(1).getPopularity().getOverrides().get(0).getLocale().getCountry(), US);
         assertEquals(subject.getEntities().get(1).getPopularity().getOverrides().get(0).getLocale().getLanguage(),
-                "en");
+                en);
         assertEquals(((Number) subject.getEntities()
                 .get(1)
                 .getPopularity()
@@ -71,23 +73,23 @@ public class MusicRecordingCatalogTest1 {
                 .getValue()).longValue(), 100L);
         assertEquals(DateUtil.formatAsIso8601Utc(subject.getEntities().get(1).getLastUpdatedTime()),
                 "2018-08-01T00:00:00.000Z");
-        assertEquals(subject.getEntities().get(1).getAlternateNames().get(0).getLanguage(), "en");
+        assertEquals(subject.getEntities().get(1).getAlternateNames().get(0).getLanguage(), en);
         assertEquals(subject.getEntities().get(1).getAlternateNames().get(0).getValues().get(0), "black whole sun");
         assertEquals(subject.getEntities().get(1).getAlternateNames().get(0).getValues().get(1), "black whole son");
         assertEquals(subject.getEntities().get(1).getAlternateNames().get(0).getValues().get(2), "black hole son");
-        assertEquals(subject.getEntities().get(1).getLocales().get(0).getCountry(), "US");
-        assertEquals(subject.getEntities().get(1).getLocales().get(0).getLanguage(), "en");
-        assertEquals(subject.getEntities().get(1).getLanguageOfContent().get(0), "en");
+        assertEquals(subject.getEntities().get(1).getLocales().get(0).getCountry(), US);
+        assertEquals(subject.getEntities().get(1).getLocales().get(0).getLanguage(), en);
+        assertEquals(subject.getEntities().get(1).getLanguageOfContent().get(0), en);
         assertEquals(subject.getEntities().get(1).getArtists().get(0).getId(), "artist.002");
-        assertEquals(subject.getEntities().get(1).getArtists().get(0).getNames().get(0).getLanguage(), "en");
+        assertEquals(subject.getEntities().get(1).getArtists().get(0).getNames().get(0).getLanguage(), en);
         assertEquals(subject.getEntities().get(1).getArtists().get(0).getNames().get(0).getValue(), "Soundgarden");
-        assertEquals(subject.getEntities().get(1).getArtists().get(0).getAlternateNames().get(0).getLanguage(), "en");
+        assertEquals(subject.getEntities().get(1).getArtists().get(0).getAlternateNames().get(0).getLanguage(), en);
         assertEquals(subject.getEntities().get(1).getArtists().get(0).getAlternateNames().get(0).getValues().get(0),
                 "sound garden");
         assertEquals(subject.getEntities().get(1).getAlbums().get(0).getId(), "album.002");
-        assertEquals(subject.getEntities().get(1).getAlbums().get(0).getNames().get(0).getLanguage(), "en");
+        assertEquals(subject.getEntities().get(1).getAlbums().get(0).getNames().get(0).getLanguage(), en);
         assertEquals(subject.getEntities().get(1).getAlbums().get(0).getNames().get(0).getValue(), "Superunknown");
-        assertEquals(subject.getEntities().get(1).getAlbums().get(0).getAlternateNames().get(0).getLanguage(), "en");
+        assertEquals(subject.getEntities().get(1).getAlbums().get(0).getAlternateNames().get(0).getLanguage(), en);
         assertEquals(subject.getEntities().get(1).getAlbums().get(0).getAlternateNames().get(0).getValues().get(0),
                 "super unknown");
         assertEquals(subject.getEntities().get(1).getAlbums().get(0).getReleaseType(), "Studio Album");

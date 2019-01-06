@@ -18,6 +18,11 @@
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.0</version>
+                <configuration>
+                    <includes>
+                        <include>%regex[.*.class]</include>
+                    </includes>
+                </configuration>
             </plugin>
         </plugins>
     </build>
@@ -65,5 +70,4 @@
             <version>1.0.2.Final</version>
         </dependency>
     </dependencies>
-
 </project>

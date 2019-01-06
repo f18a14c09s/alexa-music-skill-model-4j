@@ -1,6 +1,7 @@
 package f18a14c09s.integration.alexa.music.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import f18a14c09s.integration.alexa.data.Language;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,5 +25,6 @@ public class Station extends BaseEntity {
     @ElementCollection
     @CollectionTable(name = "station_languages", joinColumns = {
             @JoinColumn(name = "station_id", referencedColumnName = "id")})
-    private List<String> languageOfContent;
+    @Enumerated(EnumType.STRING)
+    private List<Language> languageOfContent;
 }
