@@ -15,6 +15,7 @@ import static f18a14c09s.integration.alexa.music.data.Feedback.Type.PREFERENCE;
 import static f18a14c09s.integration.alexa.music.data.Feedback.Value.POSITIVE;
 import static f18a14c09s.integration.alexa.music.metadata.MetadataType.TRACK;
 import static f18a14c09s.integration.alexa.music.playback.data.PlaybackInfoType.DEFAULT;
+import static f18a14c09s.integration.util.DateUtil.formatAsIso8601UtcSeconds;
 import static f18a14c09s.testing.TestUtil.assertInstanceOfAndCast;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -77,7 +78,7 @@ public class ItemTest1 {
         assertEquals(subject.getStream().getUri(),
                 "http://cdn.example.com/api/1/a2f318467fbf282999|6adc0880e0abd03d03b1ba6ac.mp3");
         assertEquals(((Number) subject.getStream().getOffsetInMilliseconds()).longValue(), 0L);
-        assertEquals(subject.getStream().getValidUntil(), "2018-05-10T19:11:35Z");
+        assertEquals(formatAsIso8601UtcSeconds(subject.getStream().getValidUntil()), "2018-05-10T19:11:35Z");
         assertEquals(((Number) subject.getDurationInMilliseconds()).longValue(), 248000L);
         assertTrue((boolean) subject.getRules().getFeedbackEnabled());
         assertEquals(subject.getId(), "e73befbe-8c27-4e4b-ab0c-9865ce8516f0");

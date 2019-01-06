@@ -2,6 +2,7 @@ package f18a14c09s.integration.alexa.music.messagetypes;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import f18a14c09s.integration.alexa.music.control.data.ToggleQueueControl;
+import f18a14c09s.integration.util.DateUtil;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -165,7 +166,11 @@ public class GetViewResponseTest1 {
                 .get(0)
                 .getStream()
                 .getOffsetInMilliseconds()).longValue(), 0L);
-        assertEquals(subject.getPayload().getItems().get(0).getStream().getValidUntil(), "2018-05-10T19:11:35Z");
+        assertEquals(DateUtil.formatAsIso8601UtcSeconds(subject.getPayload()
+                .getItems()
+                .get(0)
+                .getStream()
+                .getValidUntil()), "2018-05-10T19:11:35Z");
         assertEquals(subject.getPayload().getItems().get(0).getFeedback().getType(), PREFERENCE);
         assertEquals(subject.getPayload().getItems().get(0).getFeedback().getValue(), POSITIVE);
         assertEquals(subject.getPayload().getItems().get(1).getId(), "533718fe-b22d-4f64-8b1c-49ffdb85f619");
@@ -291,7 +296,11 @@ public class GetViewResponseTest1 {
                 .get(1)
                 .getStream()
                 .getOffsetInMilliseconds()).longValue(), 0L);
-        assertEquals(subject.getPayload().getItems().get(1).getStream().getValidUntil(), "2018-05-10T19:11:35Z");
+        assertEquals(DateUtil.formatAsIso8601UtcSeconds(subject.getPayload()
+                .getItems()
+                .get(1)
+                .getStream()
+                .getValidUntil()), "2018-05-10T19:11:35Z");
         assertEquals(subject.getPayload().getItems().get(1).getFeedback().getType(), PREFERENCE);
         assertEquals(subject.getPayload().getItems().get(1).getFeedback().getValue(), POSITIVE);
         assertEquals(subject.getHeader().getMessageId(), "2cae4d53-6bc1-4f8f-aa98-7dd2727ca84b");

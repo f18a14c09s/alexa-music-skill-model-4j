@@ -2,7 +2,7 @@ package f18a14c09s.integration.alexa.music.metadata;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import f18a14c09s.integration.alexa.data.MetadataNameProperty;
+import f18a14c09s.integration.alexa.music.data.MetadataNameProperty;
 import f18a14c09s.integration.alexa.music.data.Art;
 import f18a14c09s.integration.alexa.music.data.ResolvedSelectionCriteria;
 import lombok.Getter;
@@ -25,5 +25,11 @@ public abstract class BaseMetadata {
 
     protected BaseMetadata(MetadataType type) {
         this.type = type;
+    }
+
+    protected BaseMetadata(MetadataType type, MetadataNameProperty name, Art art) {
+        this.type = type;
+        this.name = name;
+        this.art = art;
     }
 }

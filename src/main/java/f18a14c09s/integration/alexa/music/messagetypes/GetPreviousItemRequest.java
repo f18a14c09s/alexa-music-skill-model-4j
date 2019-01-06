@@ -15,11 +15,7 @@ public class GetPreviousItemRequest extends Request<GetPreviousItemRequest.Paylo
     @Getter
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
-    public static final class Payload {
-        /**
-         * An object containing context information about the request. See the RequestContext object for more information.
-         */
-        private RequestContext requestContext;
+    public static final class Payload extends Request.AbstractPayload {
         /**
          * An object identifying the currently playing item. See the ItemReference object for more information.
          */

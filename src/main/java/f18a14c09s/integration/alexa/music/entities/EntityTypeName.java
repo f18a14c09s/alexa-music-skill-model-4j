@@ -1,4 +1,4 @@
-package f18a14c09s.integration.alexa.music.data;
+package f18a14c09s.integration.alexa.music.entities;
 
 /**
  * This class exists solely because annotations don't allow the direct use of an enum's name.

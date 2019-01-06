@@ -17,11 +17,7 @@ public class GetPlayableContentRequest extends Request<GetPlayableContentRequest
     @Getter
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
-    public static final class Payload {
-        /**
-         * An object containing context information about the request. See the RequestContext object for more information.
-         */
-        private RequestContext requestContext;
+    public static final class Payload extends Request.AbstractPayload {
         /**
          * Filters to apply during content resolution. See the Filters object for more information.
          */

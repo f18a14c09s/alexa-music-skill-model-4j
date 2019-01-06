@@ -15,11 +15,7 @@ public class GetViewRequest extends Request<GetViewRequest.Payload> {
     @Getter
     @Setter
     @JsonIgnoreProperties(ignoreUnknown = true)
-    public static final class Payload {
-        /**
-         * An object containing context information about the request. See the RequestContext object for more information.
-         */
-        private RequestContext requestContext;
+    public static final class Payload extends Request.AbstractPayload {
         /**
          * An object identifying the currently playing item. The skill should use the identifiers here to find the play queue for which Alexa is requesting items. See the ItemReference object for more information.
          * TODO: The structure of this property implies ItemReference as the data type, but the example JSON implies MediaReference&lt;ItemReference&gt; as the data type.  Verify which it should be.
