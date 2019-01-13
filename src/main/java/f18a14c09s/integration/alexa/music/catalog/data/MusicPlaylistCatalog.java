@@ -5,14 +5,16 @@ import f18a14c09s.integration.alexa.music.entities.Playlist;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.*;
+
+import static f18a14c09s.integration.alexa.music.catalog.data.CatalogTypeName.AMAZON_MUSIC_PLAYLIST;
 
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Entity
+@DiscriminatorValue(AMAZON_MUSIC_PLAYLIST)
 public class MusicPlaylistCatalog extends AbstractCatalog {
     @ManyToMany
     @JoinTable(name = "catalog_playlists", joinColumns = {

@@ -1,5 +1,6 @@
 package f18a14c09s.integration.util;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -12,8 +13,8 @@ public class DateUtil {
         return newIso8601UtcDateFormat().format(date.getTime());
     }
 
-    public static String parseAsIso8601Utc(Calendar date) {
-        return newIso8601UtcDateFormat().format(date.getTime());
+    public static Date parseAsIso8601UtcSeconds(String dateString) throws ParseException {
+        return newIso8601UtcDateFormatSeconds().parse(dateString);
     }
 
     private static SimpleDateFormat newIso8601UtcDateFormat() {

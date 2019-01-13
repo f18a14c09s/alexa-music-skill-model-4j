@@ -11,6 +11,7 @@ import java.util.*;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Entity
 @Table(name = RelationalTableName.STATION)
 @DiscriminatorValue(EntityTypeName.STATION)
 public class Station extends BaseEntity {

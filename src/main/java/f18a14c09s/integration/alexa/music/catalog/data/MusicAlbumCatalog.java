@@ -14,8 +14,6 @@ import static f18a14c09s.integration.alexa.music.catalog.data.CatalogTypeName.AM
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Entity
-//@Table(name = "album_catalogs")
-//@Table(name = "music_catalogs")
 @DiscriminatorValue(AMAZON_MUSIC_ALBUM)
 public class MusicAlbumCatalog extends AbstractCatalog {
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
