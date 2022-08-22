@@ -9,7 +9,7 @@ import f18a14c09s.integration.alexa.music.data.MetadataNameProperty;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Getter
 @Setter
@@ -23,6 +23,7 @@ public class EntityName {
     private Long id;
     @Enumerated(EnumType.STRING)
     private Language language;
+    @Column(name = "\"VALUE\"")
     private String value;
 
     public EntityName() {

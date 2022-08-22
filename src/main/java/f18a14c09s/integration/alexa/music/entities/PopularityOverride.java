@@ -6,7 +6,7 @@ import f18a14c09s.integration.alexa.data.Locale;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Getter
 @Setter
@@ -21,5 +21,6 @@ public class PopularityOverride {
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "locale_id", referencedColumnName = "id")
     private Locale locale;
+    @Column(name = "\"VALUE\"")
     private Long value;
 }
