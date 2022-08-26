@@ -19,11 +19,13 @@ public class ContentActions {
     /**
      * Determines whether the content is browsable.
      */
-    private Boolean browseable;
+    private Boolean browsable;
+    // private Boolean browseable;
 
     public static ContentActions browseable() {
         ContentActions retval = new ContentActions();
-        retval.setBrowseable(true);
+        retval.setBrowsable(true);
+        // retval.setBrowseable(true);
         return retval;
     }
 
@@ -35,7 +37,8 @@ public class ContentActions {
 
     public static ContentActions browseableAndPlayable() {
         ContentActions retval = new ContentActions();
-        retval.setBrowseable(true);
+        retval.setBrowsable(true);
+        // retval.setBrowseable(true);
         retval.setPlayable(true);
         return retval;
     }
