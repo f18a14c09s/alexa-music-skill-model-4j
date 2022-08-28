@@ -1,6 +1,8 @@
 package f18a14c09s.integration.alexa.music.catalog.data;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JSR310Module;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import f18a14c09s.integration.util.DateUtil;
 import org.junit.jupiter.api.Test;
 
@@ -19,7 +21,7 @@ public class MusicAlbumCatalogTest1 {
 
     @Test
     void testDeserialization() throws IOException {
-        ObjectMapper jsonMapper = new ObjectMapper();
+        ObjectMapper jsonMapper = new ObjectMapper().registerModule(new JavaTimeModule());
         MusicAlbumCatalog subject = jsonMapper.readValue(TEST_CASE, MusicAlbumCatalog.class);
 
         assertEquals(subject.getLocales().get(0).getCountry(), US);
