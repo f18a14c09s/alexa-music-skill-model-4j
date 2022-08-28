@@ -10,12 +10,15 @@ import lombok.Getter;
 import lombok.Setter;
 
 import jakarta.persistence.*;
+import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
+
 import java.util.*;
 import java.util.stream.*;
 
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
+@DynamoDbBean
 @Entity
 @Table(name = RelationalTableName.ALBUM)
 @DiscriminatorValue(EntityTypeName.ALBUM)

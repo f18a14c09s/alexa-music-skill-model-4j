@@ -9,11 +9,14 @@ import lombok.Getter;
 import lombok.Setter;
 
 import jakarta.persistence.*;
+import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
+
 import java.util.*;
 
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
+@DynamoDbBean
 @Entity
 @Table(name = RelationalTableName.ARTIST)
 @DiscriminatorValue(EntityTypeName.ARTIST)
