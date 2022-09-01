@@ -5,25 +5,18 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import f18a14c09s.integration.alexa.music.data.EntityMetadata;
 import lombok.Getter;
 import lombok.Setter;
-
-import jakarta.persistence.*;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 
-import java.util.*;
+import java.util.Optional;
 
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @DynamoDbBean
-@Entity
-@Table(name = RelationalTableName.ALBUM)
-@DiscriminatorValue(EntityTypeName.ALBUM)
 public class AlbumReference extends BaseEntityReference {
-    @Column(name = "release_type")
     private String releaseType;
 
     @JsonIgnore
-    @Column(name = "natural_order")
     private Long naturalOrder;
 
     @Override

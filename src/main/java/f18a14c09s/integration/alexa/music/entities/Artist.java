@@ -7,24 +7,16 @@ import f18a14c09s.integration.alexa.music.metadata.ArtistMetadata;
 import f18a14c09s.integration.alexa.music.metadata.MediaMetadata;
 import lombok.Getter;
 import lombok.Setter;
-
-import jakarta.persistence.*;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 
-import java.util.*;
+import java.util.Optional;
 
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @DynamoDbBean
-@Entity
-@Table(name = RelationalTableName.ARTIST)
-@DiscriminatorValue(EntityTypeName.ARTIST)
-@NamedQueries({@NamedQuery(name = "Artist.getPlayableContent", query = "SELECT o FROM Artist o WHERE o.id = :id")})
 public class Artist extends BaseEntity {
     @JsonIgnore
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "art_id", referencedColumnName = "id")
     private Art art;
 
     public ArtistReference toReference() {

@@ -4,11 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
-
-import jakarta.persistence.*;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 
-import java.util.*;
+import java.util.List;
 
 /**
  * Contains artwork for a media content.
@@ -17,24 +15,17 @@ import java.util.*;
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @DynamoDbBean
-@Entity
-@Table(name = "art")
 public class Art {
     /**
      * Description of the art for accessibility purposes. Optional but recommended.
      */
-    @Column(name = "content_description")
     private String contentDescription;
     /**
      * List of ArtSource objects each describing one size of the art. See the ArtSource object for more information.
      */
-    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "art_id", referencedColumnName = "id")
     private List<ArtSource> sources;
 
     @JsonIgnore
-    @Id
-    @GeneratedValue
     private Long id;
 
     public Art() {
