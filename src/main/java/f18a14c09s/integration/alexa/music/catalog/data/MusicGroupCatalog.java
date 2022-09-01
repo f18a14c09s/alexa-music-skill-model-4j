@@ -5,7 +5,7 @@ import f18a14c09s.integration.alexa.music.entities.Artist;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.*;
 
 import static f18a14c09s.integration.alexa.music.catalog.data.CatalogTypeName.AMAZON_MUSIC_GROUP;

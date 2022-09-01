@@ -6,12 +6,15 @@ import f18a14c09s.integration.alexa.data.Language;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
+
 import java.util.*;
 
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
+@DynamoDbBean
 @Entity
 @Table(name = "alternate_names")
 public class AlternateNames {

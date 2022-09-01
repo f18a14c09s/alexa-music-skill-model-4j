@@ -5,7 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 
 import static f18a14c09s.integration.alexa.data.Country.US;
 import static f18a14c09s.integration.alexa.data.Language.en;
@@ -13,6 +14,7 @@ import static f18a14c09s.integration.alexa.data.Language.en;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
+@DynamoDbBean
 @Entity
 @Table(name = "locales")
 public class Locale {

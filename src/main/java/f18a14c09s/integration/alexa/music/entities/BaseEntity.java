@@ -4,11 +4,13 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import f18a14c09s.integration.alexa.data.Locale;
 import f18a14c09s.integration.alexa.music.metadata.MediaMetadata;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
-import java.util.*;
+import java.time.ZonedDateTime;
+import java.util.Collections;
+import java.util.List;
 
 @Getter
 @Setter
@@ -23,7 +25,7 @@ public abstract class BaseEntity {
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSX", timezone = "UTC")
     @Column(name = "last_updated_time")
-    private Calendar lastUpdatedTime;
+    private ZonedDateTime lastUpdatedTime;
 
     private Boolean deleted;
 
@@ -53,7 +55,7 @@ public abstract class BaseEntity {
     }
 
     public BaseEntity(String id,
-                      Calendar lastUpdatedTime,
+                      ZonedDateTime lastUpdatedTime,
                       Boolean deleted,
                       List<Locale> locales,
                       List<EntityName> names,

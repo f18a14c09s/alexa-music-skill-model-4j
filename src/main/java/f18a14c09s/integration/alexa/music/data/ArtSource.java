@@ -5,7 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 
 /**
  * Contains information about a single size of a media content's art (for example, album cover art).
@@ -13,6 +14,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
+@DynamoDbBean
 @Entity
 @Table(name = "art_sources")
 public class ArtSource {

@@ -6,11 +6,13 @@ import f18a14c09s.integration.alexa.data.Locale;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
+@DynamoDbBean
 @Entity
 @Table(name = "popularity_override")
 public class PopularityOverride {
@@ -21,5 +23,6 @@ public class PopularityOverride {
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "locale_id", referencedColumnName = "id")
     private Locale locale;
+    @Column(name = "\"VALUE\"")
     private Long value;
 }

@@ -5,14 +5,15 @@ import f18a14c09s.integration.alexa.music.data.EntityMetadata;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import jakarta.persistence.*;
+import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
+
 import java.util.*;
 
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
+@DynamoDbBean
 @Entity
 @Table(name = RelationalTableName.ARTIST)
 @DiscriminatorValue(EntityTypeName.ARTIST)

@@ -5,9 +5,7 @@ import f18a14c09s.integration.alexa.music.entities.Station;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import jakarta.persistence.*;
 import java.util.*;
 
 @Getter
