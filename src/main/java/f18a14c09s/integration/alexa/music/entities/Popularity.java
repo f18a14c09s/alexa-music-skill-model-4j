@@ -5,30 +5,22 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
-
-import jakarta.persistence.*;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @DynamoDbBean
-@Entity
-@Table(name = "popularity")
 public class Popularity {
     @JsonIgnore
-    @Id
-    @GeneratedValue
     private Long id;
     @JsonProperty("default")
     private Long myDefault;
 
     @Getter
     @Setter
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinTable(name = "popularity_pop_override", joinColumns = {
-            @JoinColumn(name = "popularity_id", referencedColumnName = "id")}, inverseJoinColumns = {
-            @JoinColumn(name = "pop_override_id", referencedColumnName = "id")})
     private List<PopularityOverride> overrides = Collections.emptyList();
 
     public Popularity() {

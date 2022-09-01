@@ -8,40 +8,27 @@ import f18a14c09s.integration.alexa.music.metadata.AlbumMetadata;
 import f18a14c09s.integration.alexa.music.metadata.MediaMetadata;
 import lombok.Getter;
 import lombok.Setter;
-
-import jakarta.persistence.*;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 
-import java.util.*;
-import java.util.stream.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @DynamoDbBean
-@Entity
-@Table(name = RelationalTableName.ALBUM)
-@DiscriminatorValue(EntityTypeName.ALBUM)
 public class Album extends BaseEntity {
-    @ElementCollection
-    @CollectionTable(name = "album_languages", joinColumns = {
-            @JoinColumn(name = "album_id", referencedColumnName = "id")})
-    @Column(name = "content_language")
-    @Enumerated(EnumType.STRING)
     private List<Language> languageOfContent;
 
-    @Column(name = "release_type")
     private String releaseType;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinTable(name = "album_artists", joinColumns = {
-            @JoinColumn(name = "album_id", referencedColumnName = "id")}, inverseJoinColumns = {
-            @JoinColumn(name = "artist_id", referencedColumnName = "id")})
     private List<ArtistReference> artists;
 
     @JsonIgnore
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "art_id", referencedColumnName = "id")
     private Art art;
 
     /**
@@ -51,7 +38,6 @@ public class Album extends BaseEntity {
      * (*) Album name.
      */
     @JsonIgnore
-    @Column(name = "natural_order")
     private Long naturalOrder;
 
     public AlbumReference toReference() {

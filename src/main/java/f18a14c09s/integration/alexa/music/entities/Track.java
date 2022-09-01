@@ -8,26 +8,20 @@ import f18a14c09s.integration.alexa.music.metadata.MediaMetadata;
 import f18a14c09s.integration.alexa.music.metadata.TrackMetadata;
 import lombok.Getter;
 import lombok.Setter;
-
-import jakarta.persistence.*;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 
-import java.util.*;
-import java.util.stream.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @DynamoDbBean
-@Entity
-@Table(name = RelationalTableName.TRACK)
-@DiscriminatorValue(EntityTypeName.TRACK)
 public class Track extends BaseEntity {
-    @ElementCollection
-    @CollectionTable(name = "song_languages", joinColumns = {
-            @JoinColumn(name = "song_id", referencedColumnName = "id")})
-    @Column(name = "content_language")
-    @Enumerated(EnumType.STRING)
     private List<Language> languageOfContent;
 
     // Contradiction:
@@ -40,33 +34,20 @@ public class Track extends BaseEntity {
 //    @Column(name = "release_type")
 //    private String releaseType;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinTable(name = "song_artists", joinColumns = {
-            @JoinColumn(name = "song_id", referencedColumnName = "id")}, inverseJoinColumns = {
-            @JoinColumn(name = "artist_id", referencedColumnName = "id")})
     private List<ArtistReference> artists;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinTable(name = "song_albums", joinColumns = {
-            @JoinColumn(name = "song_id", referencedColumnName = "id")}, inverseJoinColumns = {
-            @JoinColumn(name = "album_id", referencedColumnName = "id")})
     private List<AlbumReference> albums;
 
     @JsonIgnore
-    @Column(length = 4000)
     private String url;
 
     @JsonIgnore
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "art_id", referencedColumnName = "id")
     private Art art;
 
     @JsonIgnore
-    @Column(name = "duration_seconds")
     private Long durationSeconds;
 
     @JsonIgnore
-    @Column(name = "natural_order")
     private Long naturalOrder;
 
     @Override
